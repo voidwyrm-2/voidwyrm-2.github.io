@@ -1,0 +1,23 @@
+<!---->
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function encode() {
+    var text = document.getElementById("textinput");
+    document.getElementById("b64output").innerHTML = btoa(text);
+}
+</script>
+</head>
+<body>
+<h2>A test of a password to access information</h2>
+
+<p id="main">Type some text then press "encode" to encode it to Base64</p>
+<textarea id="textinput">
+
+</textarea>
+<button type="button" onclick="encode()">encode</button>
+
+<p id="b64output"></p>
+</body>
+</html>
