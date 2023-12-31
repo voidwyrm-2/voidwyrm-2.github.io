@@ -5,7 +5,7 @@
 <script>
 function encode() {
     var text = document.getElementById("textinput");
-    document.getElementById("b64output").innerHTML = btoa(text);
+    outp = btoa(text);
 }
 </script>
 </head>
@@ -18,6 +18,6 @@ function encode() {
 </textarea>
 <button type="button" onclick="encode()">encode</button>
 
-<textarea id="b64output" readonly="true"></textarea>
+<output id="b64output" for="outp"></output>
 </body>
 </html>
