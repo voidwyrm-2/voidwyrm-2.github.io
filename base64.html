@@ -1,11 +1,12 @@
-<!---->
+
 <!DOCTYPE html>
 <html>
 <head>
 <script>
 function encode() {
     var text = document.getElementById("textinput");
-    outp = btoa(text);
+    var output = btoa(text);
+    alert("encoded text:\n" + output);
 }
 </script>
 </head>
@@ -18,6 +19,6 @@ function encode() {
 </textarea>
 <button type="button" onclick="encode()">encode</button>
 
-<output id="b64output" for="outp"></output>
+<!--<output id="b64output" for="outp"></output>-->
 </body>
 </html>
