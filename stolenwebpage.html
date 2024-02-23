@@ -1,0 +1,1277 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--<link rel="icon" type="image/png" href="/favicon.png">-->
+
+    </style>
+    <link rel="icon" sizes="192x192" href="https://www.latlong.net/icon.png">
+    <link rel="apple-touch-icon" href="https://www.latlong.net/apple-touch-icon-152x152.png" sizes="152x152">
+
+    <link rel="preconnect" href="https://cdn.pubmax.co">
+    <link rel="dns-prefetch" href="https://cdn.pubmax.co">
+    <script src="https://cdn.pubmax.co/llg.pm.js" async></script>
+
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-159581532-5"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-159581532-5');
+    </script>
+
+    <title>Latitude and Longitude Finder on Map Get Coordinates</title>
+    <meta name="description" content="Lat long is a geographic tool which helps you to get latitude and longitude of a place or city and find gps coordinates on map, convert lat long, gps, dms and utm."/>
+    <link rel="canonical" href="https://www.latlong.net/"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ==" crossorigin=""/>
+</head>
+<body>
+    <header>
+        <div class="topnav" id="myTopnav">
+            <a href="/" title="Lat Long Finder" class="logolink">
+                <img src="/logo1x.png" srcset="/logo1x.png 1x,/logo2x.png 2x" loading="lazy" alt="LatLong Logo" width="177" height="32">
+            </a>
+            <a href="/geo-tools" title="Geographic Tools">Geographic Tools</a>
+            <a href="/products" title="Pricing of our products">
+                <strong>Pricing</strong>
+            </a>
+            <a href="/latest-places.html" title="Latest Places">Places</a>
+            <a href="/tv-series-locations" title="TV Series Locations">TV Series</a>
+            <a href="/movies-locations" title="Movies Locations">Movies</a>
+            <a href="https://twitter.com/latlong_net" title="Lat Long on Twitter" rel="noopener">@LatLong</a>
+            <a href="/user/login">
+                <img src="/img/user.png" srcset="/img/user.png 1x,/img/user2x.png 2x" width="24" height="24" alt="My Account" class="icons"/>
+                 User Login
+            </a>
+            <a href="#" class="icon" title="Dropdown menu" onclick="dropMenu();">&#9776;</a>
+        </div>
+    </header>
+    <main>
+        <div class="center margin10" style="min-height:100px">
+            <div pm-adunit='/22815767462/LLG_728v_1'></div>
+            <div pm-adunit='/22815767462/LLG_Mob_300v_1'></div>
+        </div>
+        <h1>Latitude and Longitude Finder</h1>
+        <p>
+            <strong>Latitude and Longitude</strong>
+             are the units that represent the 
+            <em>coordinates at geographic coordinate system</em>
+            . 
+            To make a search, use the name of a place, city, state, or address, or click the location on the map to 
+            <strong>find lat long coordinates</strong>
+            .
+        </p>
+        <div class="row">
+            <div class="col-7 graybox">
+                <form id="frmPlace" method="post">
+                    <label for="place">Place Name</label>
+                    <input id="place" name="place" type="text" placeholder="Type a place name" class="width70" maxlength="140" style="text-transform:capitalize;" value="" required/>
+                    <input type="hidden" name="lltoken" id="lltoken" value="76987244814b5f23c3e2d96d8b90f94ca4a6b4d6bf77c3b83c4a67422c21df4f"/>
+                    <input type="hidden" name="llcd" id="llcd" value="0"/>
+                    <button title="Find Lat &amp; Long" class="button" id="btnfind">Find</button>
+                    <br/>
+                    <small>Add the country code for better results. Ex: London, UK</small>
+                    <br/>
+                    <span id="loading">Looking for the lat long, please wait...</span>
+                </form>
+                <div class="row">
+                    <div class="col-6 m2">
+                        <label for="lat">Latitude</label>
+                        <input type="text" name="lat" id="lat" placeholder="lat coordinate"/>
+                    </div>
+                    <div class="col-6 m2">
+                        <label for="lng">Longitude</label>
+                        <input type="text" name="lng" id="lng" placeholder="long coordinate"/>
+                    </div>
+                </div>
+                <div class="social">
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.latlong.net%2F" rel="noopener" target="_blank" class="button share-on-facebook" title="Share on Facebook">
+                        <svg fill="#ffffff" height="24" viewBox="0 0 32 32" width="24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18,32V18h6l1-6h-7V9c0-2,1.002-3,3-3h3V0c-1,0-3.24,0-5,0c-5,0-7,3-7,8v4H6v6h6v14H18z"/>
+                        </svg>
+                    </a>
+                    <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fwww.latlong.net%2F&amp;via=latlong_net" rel="noopener" target="_blank" class="button share-on-twitter" title="Tweet this">
+                        <svg class="twitter" fill="#ffffff" height="24" viewBox="0 0 512 512" width="24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M492,109.5c-17.4,7.7-36,12.9-55.6,15.3c20-12,35.4-31,42.6-53.6c-18.7,11.1-39.4,19.2-61.5,23.5  C399.8,75.8,374.6,64,346.8,64c-53.5,0-96.8,43.4-96.8,96.9c0,7.6,0.8,15,2.5,22.1C172,179,100.6,140.4,52.9,81.7  c-8.3,14.3-13.1,31-13.1,48.7c0,33.6,17.1,63.3,43.1,80.7C67,210.7,52,206.3,39,199c0,0.4,0,0.8,0,1.2c0,47,33.4,86.1,77.7,95  c-8.1,2.2-16.7,3.4-25.5,3.4c-6.2,0-12.3-0.6-18.2-1.8c12.3,38.5,48.1,66.5,90.5,67.3c-33.1,26-74.9,41.5-120.3,41.5  c-7.8,0-15.5-0.5-23.1-1.4C62.9,432,113.8,448,168.4,448C346.6,448,444,300.3,444,172.2c0-4.2-0.1-8.4-0.3-12.5  C462.6,146,479,128.9,492,109.5z"></path>
+                        </svg>
+                    </a>
+                </div>
+                <p>For better accuracy please type Name Address City State Zipcode.</p>
+            </div>
+            <div class="col-5">
+                <div class="center" style="min-height:280px;">
+                    <div pm-adunit='/22815767462/LLG_300v_1'></div>
+                    <div pm-adunit='/22815767462/LLG_Mob_300v_2'></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-7">
+                <div id="latlongmap" style="width:100%;height:400px;" class="shadow"></div>
+            </div>
+            <div class="col-5">
+                <iframe id="latlongmape" title="Satellite Map" width="360" height="400" style="border:0;width:100%" class="shadow" src="satellite.htm" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="row bg-gray border">
+            <div class="col-6 m6">
+                <span class="titleh3">Lat Long</span>
+                <span id="latlngspan" class="coordinatetxt">0,0</span>
+            </div>
+            <div class="col-6 m6">
+                <span class="titleh3">GPS Coordinates</span>
+                <span id="dms-lat" class="coordinatetxt">0</span>
+                <span id="dms-lng" class="coordinatetxt">0</span>
+            </div>
+        </div>
+        <div class="margin10 center" style="min-height:250px">
+            <div pm-adunit='/22815767462/LLG_728v_2'></div>
+            <div pm-adunit='/22815767462/LLG_Mob_300v_2'></div>
+        </div>
+        <form class="bgrs padding10 border margin20" onsubmit="return false;">
+            <div class="row">
+                <div class="col-6">
+                    <label for="coordinateslink">Share this location link</label>
+                    <textarea readonly="readonly" id="coordinateslink" class="small full-width" onclick="this.focus();this.select()"></textarea>
+                    <br/>
+                    <small>Copy and paste the html code above in your website to share.</small>
+                </div>
+                <div class="col-6">
+                    <label for="coordinatesurl">Location page url</label>
+                    <input type="text" id="coordinatesurl" class="small full-width" readonly="readonly" onclick="this.select();"/>
+                </div>
+            </div>
+        </form>
+        <div class="row">
+            <div class="col-9">
+                <h2>What is Latitude and Longitude?</h2>
+                <p>
+                    Just like every actual house has its address (which includes the number, the name of the street, city, etc), every single point on the surface of earth can be specified by the 
+                    <em>latitude and longitude coordinates</em>
+                    . Therefore, by using latitude and longitude we can specify virtually any point on earth.
+                </p>
+                <p>
+                    The 
+                    <strong>latitude</strong>
+                     has the symbol of 
+                    <em>phi</em>
+                    , and it shows the angle between the straight line in the certain point and the equatorial plane. The latitude is specified by degrees, starting from 0&deg; and ending up with 90&deg; to both sides of the equator, making latitude Northern and Southern. The equator is the line with 0&deg; latitude. The 
+                    <strong>longitude</strong>
+                     has the symbol of lambda and is another angular coordinate defining the position of a point on a surface of earth. The longitude is defined as an angle pointing west or east from the Greenwich Meridian, which is taken as the 
+                    <a href="https://www.latlong.net/place/prime-meridian-greenwich-30835.html" title="Prime Meridian">Prime Meridian</a>
+                    . The longitude can be defined maximum as 180&deg; east from the Prime Meridian and 180&deg; west from the Prime Meridian.
+                </p>
+                <p>
+                    Both 
+                    <strong>latitude and longitude</strong>
+                     are measured in 
+                    <strong>degrees</strong>
+                    , which are in turn divided into minutes and seconds. For example, the tropical zone which is located to the south and to the north from the Equator is determined by the limits of 23&deg;26'13.7'' S and 23&deg;26'13.7'' N. Or. For example, the geographical coordinates of the mount Ngauruhoe in New Zealand, famous with its being the filming area for the Lord of the Rings movie, has the geographic coordinates of 39&deg;09'24.6''S 175&deg;37'55.8''E.
+                </p>
+                <h3>About Lat Long</h3>
+                <p>
+                    Latlong.net is an 
+                    <em>online geographic tool</em>
+                     that can be used to 
+                    <strong>lookup latitude and longitude of a place</strong>
+                    , and get its coordinates on map. You can search for a place using a city's or town's name, as well as the name of special places, and the correct 
+                    <em>lat long coordinates</em>
+                     will be shown at the bottom of the latitude longitude finder form. At that, the place you found will be displayed with the point marker centered on map. Also the 
+                    <strong>gps coordinates</strong>
+                     will be displayed below the map.
+                </p>
+            </div>
+            <div class="col-3">
+                <div class="locationdiv">
+                    <p>Follow us on Twitter</p>
+                    <a href="https://twitter.com/latlong_net" title="Lat Long on Twitter" rel="noopener">@latlong_net</a>
+                </div>
+                <br/>
+                <p>Recent Locations:</p>
+                <div class="locationdiv">
+                    <a href="/location/madame-web-locations-1989" title="Madame Web">
+                        <img src="/photos/tb-madame-web.jpg" loading="lazy" alt="Madame Web"/>
+                        <br/>
+                        Madame Web
+                    </a>
+                </div>
+                <div class="locationdiv">
+                    <a href="/location/the-cable-guy-locations-1988" title="The Cable Guy">
+                        <img src="/photos/tb-the-cable-guy.jpg" loading="lazy" alt="The Cable Guy"/>
+                        <br/>
+                        The Cable Guy
+                    </a>
+                </div>
+                <div class="locationdiv">
+                    <a href="/location/the-mirror-has-two-faces-locations-1987" title="The Mirror Has Two Faces">
+                        <img src="/photos/tb-the-mirror-has-two-faces.jpg" loading="lazy" alt="The Mirror Has Two Faces"/>
+                        <br/>
+                        The Mirror Has Two Faces
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!--<div class="margin10 center" style="min-height:250px;">-->
+        <!--<div data-aaad='true' data-aa-adunit='/22815767462/LLG_728v_3'></div>-->
+        <!--<div data-aaad='true' data-aa-adunit='/22815767462/LLG_Mob_300v_3'></div>-->
+        <!--</div>-->
+
+        <div class="row">
+            <div class="col-3">
+                <div class="locationdiv">
+                    <a href="/tv-series-locations" title="TV Series Locations">TV Series Locations</a>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="locationdiv">
+                    <a href="/movies-locations" title="Movies Locations">Movies Locations</a>
+                </div>
+            </div>
+
+            <div class="col-3">
+                <div class="locationdiv">
+                    <a href="/music-videos-locations" title="Music Videos Locations">Music Videos Locations</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-3">
+                <div class="locationdiv">
+                    <a href="/important-places-locations" title="Important Places Locations">Important Places Locations</a>
+                </div>
+            </div>
+
+            <div class="col-3">
+                <div class="locationdiv">
+                    <a href="/mobile-games-locations" title="Mobile Games Locations">Mobile Games Locations</a>
+                </div>
+            </div>
+        </div>
+
+        <h3>Recently Added Places</h3>
+        <ul>
+            <li>
+                <a href="/place/lake-mead-national-recreation-area-nv-usa-33322.html" title="Lake Mead National Recreation Area, NV, USA">Lake Mead National Recreation Area, NV, USA</a>
+                <br/>
+                Lake Mead National Recreation Area is a 1.5 million-acre park in Clark County, Nevada and Mohave County, Arizona,...
+            </li>
+            <li>
+                <a href="/place/the-cosmopolitan-of-las-vegas-nv-usa-33321.html" title="The Cosmopolitan of Las Vegas, NV, USA">The Cosmopolitan of Las Vegas, NV, USA</a>
+                <br/>
+                The Cosmopolitan of Las Vegas is a 5-star hotel and casino in Las Vegas, Nevada, United States, located...
+            </li>
+            <li>
+                <a href="/place/city-center-of-las-vegas-nv-usa-33320.html" title="City Center of Las Vegas, NV, USA">City Center of Las Vegas, NV, USA</a>
+                <br/>
+                City Center of Las Vegas, also known as Aria Campus, is a large complex in Paradise, Nevada, United...
+            </li>
+            <li>
+                <a href="/place/temple-square-ut-usa-33319.html" title="Temple Square, UT, USA">Temple Square, UT, USA</a>
+                <br/>
+                Temple Square is a historical landmark in downtown Salt Lake City, Utah, United States, located at 50 North...
+            </li>
+            <li>
+                <a href="/place/westfield-culver-city-ca-usa-33318.html" title="Westfield Culver City, CA, USA">Westfield Culver City, CA, USA</a>
+                <br/>
+                Westfield Culver City is a 3-level shopping center with a movie theater, a gym, and department stores in...
+            </li>
+        </ul>
+        <h3>Recently Updated Places</h3>
+        <ul>
+            <li>
+                <a href="/place/lake-mead-national-recreation-area-nv-usa-33322.html" title="Lake Mead National Recreation Area, NV, USA">Lake Mead National Recreation Area, NV, USA</a>
+            </li>
+            <li>
+                <a href="/place/the-cosmopolitan-of-las-vegas-nv-usa-33321.html" title="The Cosmopolitan of Las Vegas, NV, USA">The Cosmopolitan of Las Vegas, NV, USA</a>
+            </li>
+            <li>
+                <a href="/place/city-center-of-las-vegas-nv-usa-33320.html" title="City Center of Las Vegas, NV, USA">City Center of Las Vegas, NV, USA</a>
+            </li>
+            <li>
+                <a href="/place/temple-square-ut-usa-33319.html" title="Temple Square, UT, USA">Temple Square, UT, USA</a>
+            </li>
+            <li>
+                <a href="/place/westfield-culver-city-ca-usa-33318.html" title="Westfield Culver City, CA, USA">Westfield Culver City, CA, USA</a>
+            </li>
+            <li>
+                <a href="/place/rocky-steps-pa-usa-33299.html" title="Rocky Steps, PA, USA">Rocky Steps, PA, USA</a>
+            </li>
+            <li>
+                <a href="/place/westgate-entertainment-district-az-usa-33317.html" title="Westgate Entertainment District, AZ, USA">Westgate Entertainment District, AZ, USA</a>
+            </li>
+            <li>
+                <a href="/place/atlanta-botanical-garden-ga-usa-33316.html" title="Atlanta Botanical Garden, GA, USA">Atlanta Botanical Garden, GA, USA</a>
+            </li>
+            <li>
+                <a href="/place/dorney-park-wildwater-kingdom-pa-usa-33315.html" title="Dorney Park & Wildwater Kingdom, PA, USA">Dorney Park & Wildwater Kingdom, PA, USA</a>
+            </li>
+            <li>
+                <a href="/place/horseshoe-bend-az-usa-33314.html" title="Horseshoe Bend, AZ, USA">Horseshoe Bend, AZ, USA</a>
+            </li>
+        </ul>
+        <p>
+            <a href="/location/pok-mon-go-locations-3" title="Pokémon GO Locations">Pokémon GO Locations</a>
+        </p>
+        <p>
+            Dear visitors,
+            <br/>
+
+            You can get free 30 geocode process per day by 
+            <a href="/user/register" title="New User Register">Signing up free</a>
+             to latlong.net.
+            <br/>
+
+            Non registered visitors can only run 10 geocode process.
+            <br/>
+
+            Thank you for supporting us...
+        </p>
+        <div class="center">
+            <em>
+                Thank you for using 
+                <a href="/" title="Latitude and Longitude Finder">latlong.net</a>
+                ...
+            </em>
+        </div>
+        <div class="comments">
+            <form id="frmcomment" class="form rounded shadow margin20">
+                <fieldset>
+                    <legend>Share Your Comment</legend>
+                    <label for="commentname">Name (optional)</label>
+                    <input id="commentname" name="commentname" type="text" placeholder="Your name"/>
+                    <label for="commenttext">Comment</label>
+                    <textarea id="commenttext" name="commenttext" rows="3" cols="24" required></textarea>
+                    <input type="hidden" name="yid" value="main"/>
+                    <input type="hidden" name="usid" id="usid" value="0"/>
+                    <button type="submit" class="button" id="sendcomment">Send</button>
+                    <div id="tagmessage"></div>
+                </fieldset>
+            </form>
+
+            <h3>Recent Comments</h3>
+            <div class="commentdiv greenbg">
+                <span class="commentauthor">
+                    Pierre Sebastian Raphael - 
+                    <em class="green-text">Editor's Pick</em>
+                </span>
+                <span class="date">2020-10-18 13:29:58</span>
+                <p>I like Geography, especially about the Earth. It is so much fun knowing these stuffs, about latitudes and longitudes. I like this website and I am going to copy the link and save to my laptop. Thank You LatLong:)</p>
+                <div class="thmbs">
+                    <span id="points17690">219</span>
+                    <input class="btntb" type="image" data-id="17690" data-pn="1" src="/img/thumbup.png" alt="Like"/>
+                    <input class="btntb" type="image" data-id="17690" data-pn="2" src="/img/thumbdown.png" alt="Dislike"/>
+                </div>
+                <button data-id="17690" class="btnreply">Reply</button>
+                <div id="reply17690"></div>
+            </div>
+            <div class="commentdiv replied">
+                <span class="commentauthor">Guest</span>
+                <span class="date">2020-11-19 15:05:37</span>
+                <p>better to include elevation of that region also</p>
+            </div>
+            <div class="commentdiv greenbg">
+                <span class="commentauthor">
+                    Editor - 
+                    <em class="green-text">Editor's Pick</em>
+                </span>
+                <span class="date">2020-07-10 15:44:38</span>
+                <p>
+                    New! 
+                    <br/>
+
+                    Reverse Batch Multi Geocoding is available now! 
+                    <br/>
+
+                    You just need to sign up and buy one of our products to use our new feature. ;)
+                    <br/>
+
+                    Best regards.
+                </p>
+                <div class="thmbs">
+                    <span id="points16162">192</span>
+                    <input class="btntb" type="image" data-id="16162" data-pn="1" src="/img/thumbup.png" alt="Like"/>
+                    <input class="btntb" type="image" data-id="16162" data-pn="2" src="/img/thumbdown.png" alt="Dislike"/>
+                </div>
+                <button data-id="16162" class="btnreply">Reply</button>
+                <div id="reply16162"></div>
+            </div>
+            <div class="commentdiv greenbg">
+                <span class="commentauthor">
+                    Editor - 
+                    <em class="green-text">Editor's Pick</em>
+                </span>
+                <span class="date">2020-03-07 13:39:32</span>
+                <p>
+                    New! 
+                    <br/>
+
+                    Batch Multi Geocoding is available now!
+                    <br/>
+
+                    You can now geocode bulk addresses.
+                </p>
+                <div class="thmbs">
+                    <span id="points14580">116</span>
+                    <input class="btntb" type="image" data-id="14580" data-pn="1" src="/img/thumbup.png" alt="Like"/>
+                    <input class="btntb" type="image" data-id="14580" data-pn="2" src="/img/thumbdown.png" alt="Dislike"/>
+                </div>
+                <button data-id="14580" class="btnreply">Reply</button>
+                <div id="reply14580"></div>
+            </div>
+            <div class="commentdiv replied">
+                <span class="commentauthor">bob</span>
+                <span class="date">2021-03-04 20:08:09</span>
+                <p>its the best I know!!!</p>
+            </div>
+            <div class="commentdiv replied">
+                <span class="commentauthor">Dafany</span>
+                <span class="date">2020-08-13 15:33:33</span>
+                <p>30 geocode process is great. Hope that more will come up. Keep good wor</p>
+            </div>
+            <div class="commentdiv replied">
+                <span class="commentauthor">Editor</span>
+                <span class="date">2020-03-29 20:35:00</span>
+                <p>
+                    Hey!
+                    <br/>
+
+                    Thanks for your visiting our website.
+                    <br/>
+
+                    Batch Multi Geocoding is available for our registered users. So you need to sign up to latlong.net and buy one of our products to use our new feature. ;)
+                </p>
+            </div>
+            <div class="commentdiv replied">
+                <span class="commentauthor">I see that bulk geocoding is available - but where?</span>
+                <span class="date">2020-03-29 18:24:29</span>
+                <p>
+                    I see that bulk geocoding is available - but where? I have about 25 to do, but I don't want to type in each one individually.  However, I don't see a button or link or anything for me to upload my 25 addresses.
+                    <br/>
+                    <br/>
+
+                    Peace
+                    <br/>
+
+                    CJ
+                </p>
+            </div>
+            <div class="commentdiv replied">
+                <span class="commentauthor">Truck Manager</span>
+                <span class="date">2020-03-07 13:48:23</span>
+                <p>Finally! Long-awaited feature was batch geocoding and it is available now!</p>
+            </div>
+            <div class="commentdiv greenbg">
+                <span class="commentauthor">
+                    Editor - 
+                    <em class="green-text">Editor's Pick</em>
+                </span>
+                <span class="date">2020-01-17 19:39:22</span>
+                <p>
+                    Dear visitors,
+                    <br/>
+
+                    We started user login system and this will give our users the opportunity to use latlong.net free 30 daily quota per day. 
+                    <br/>
+
+                    Hope you enjoy new features. 
+                    <br/>
+
+                    Best regards.
+                </p>
+                <div class="thmbs">
+                    <span id="points14227">129</span>
+                    <input class="btntb" type="image" data-id="14227" data-pn="1" src="/img/thumbup.png" alt="Like"/>
+                    <input class="btntb" type="image" data-id="14227" data-pn="2" src="/img/thumbdown.png" alt="Dislike"/>
+                </div>
+                <button data-id="14227" class="btnreply">Reply</button>
+                <div id="reply14227"></div>
+            </div>
+            <div class="commentdiv replied">
+                <span class="commentauthor">Jade</span>
+                <span class="date">2020-09-08 16:29:29</span>
+                <p>This is a good app :)</p>
+            </div>
+            <div class="commentdiv replied">
+                <span class="commentauthor">Editor</span>
+                <span class="date">2020-02-26 18:49:40</span>
+                <p>
+                    Dear Ben,
+                    <br/>
+
+                    Thanks for visiting our website.
+                    <br/>
+
+                    If you need to use latlong.net more than the daily quota please visit "Pricing" page. You can choose one of our Geocoding Products ;)
+                    <br/>
+
+                    Best regards.
+                </p>
+            </div>
+            <div class="commentdiv replied">
+                <span class="commentauthor">Ben Meersman</span>
+                <span class="date">2020-02-26 18:14:03</span>
+                <p>Why is there a 30 daily quota? This tool is incredibly useful but if I'm limited to 30 per day whats the point? Is there a way to get more per day?</p>
+            </div>
+            <div class="commentdiv replied">
+                <span class="commentauthor">Guest</span>
+                <span class="date">2020-01-29 20:36:05</span>
+                <p>30 geocode process is great. Hope that more will come up. Keep good work.</p>
+            </div>
+            <div class="commentdiv replied">
+                <span class="commentauthor">Joe</span>
+                <span class="date">2020-01-29 20:27:06</span>
+                <p>User system makes more useful for latlong.</p>
+            </div>
+            <div class="commentdiv greenbg">
+                <span class="commentauthor">
+                    Eugene Wong - 
+                    <em class="green-text">Editor's Pick</em>
+                </span>
+                <span class="date">2020-01-03 03:49:11</span>
+                <p>
+                    This is fantastic and very useful for Latlong coordinates.  
+                    <br/>
+                    <br/>
+
+                    Great job, guys and gals.
+                    <br/>
+                    <br/>
+
+                    Thank you!
+                </p>
+                <div class="thmbs">
+                    <span id="points14113">91</span>
+                    <input class="btntb" type="image" data-id="14113" data-pn="1" src="/img/thumbup.png" alt="Like"/>
+                    <input class="btntb" type="image" data-id="14113" data-pn="2" src="/img/thumbdown.png" alt="Dislike"/>
+                </div>
+                <button data-id="14113" class="btnreply">Reply</button>
+                <div id="reply14113"></div>
+            </div>
+            <div class="commentdiv replied">
+                <span class="commentauthor">GERALD COX</span>
+                <span class="date">2020-07-03 04:51:39</span>
+                <p>BRINGS ME BACK TO MY COLLEGE DAYS,  EXCELLANT TOOL</p>
+            </div>
+            <div class="commentdiv replied">
+                <span class="commentauthor">nawal</span>
+                <span class="date">2020-04-16 23:19:02</span>
+                <p>thanks for the app really can help....</p>
+            </div>
+            <div class="commentdiv greenbg">
+                <span class="commentauthor">
+                    Jaden - 
+                    <em class="green-text">Editor's Pick</em>
+                </span>
+                <span class="date">2019-11-19 20:10:12</span>
+                <p>I love this site you people are doing great keep it up.It helps me pull up my grades in now i get better grades.In long,lat is great for people that don't know how to use this site.I rlly hope you ppl keep up the great work.The more you do a good job the more i show people about this site.I rly use this site every day.Because is helps you learn.Thank's!!!</p>
+                <div class="thmbs">
+                    <span id="points13695">25</span>
+                    <input class="btntb" type="image" data-id="13695" data-pn="1" src="/img/thumbup.png" alt="Like"/>
+                    <input class="btntb" type="image" data-id="13695" data-pn="2" src="/img/thumbdown.png" alt="Dislike"/>
+                </div>
+                <button data-id="13695" class="btnreply">Reply</button>
+                <div id="reply13695"></div>
+            </div>
+            <div class="commentdiv greenbg">
+                <span class="commentauthor">
+                    Ultramajik - 
+                    <em class="green-text">Editor's Pick</em>
+                </span>
+                <span class="date">2019-10-28 19:30:51</span>
+                <p>I drove a big time company exec for several years. The first time I drove him to his required location, I set my GPS to a parking SPOT in the parking LOT of the company using this website. He asked, "How the HELL did you do that?".  I used this ALL the time. Incredible.</p>
+                <div class="thmbs">
+                    <span id="points13289">19</span>
+                    <input class="btntb" type="image" data-id="13289" data-pn="1" src="/img/thumbup.png" alt="Like"/>
+                    <input class="btntb" type="image" data-id="13289" data-pn="2" src="/img/thumbdown.png" alt="Dislike"/>
+                </div>
+                <button data-id="13289" class="btnreply">Reply</button>
+                <div id="reply13289"></div>
+            </div>
+            <div class="commentdiv greenbg">
+                <span class="commentauthor">
+                    Billy ray Cyrus - 
+                    <em class="green-text">Editor's Pick</em>
+                </span>
+                <span class="date">2019-10-21 15:45:22</span>
+                <p>
+                    This is making this really easy to understand for not just me but for those who do not understand this type of things that are hard for people.So all I have to say now really is that whoever made this website is a genius because I still could not get the latitude and longitude 
+                    <br/>
+
+                    but after using this website I would just know the latitude and longitude.             THANKYOU !!
+                </p>
+                <div class="thmbs">
+                    <span id="points13117">25</span>
+                    <input class="btntb" type="image" data-id="13117" data-pn="1" src="/img/thumbup.png" alt="Like"/>
+                    <input class="btntb" type="image" data-id="13117" data-pn="2" src="/img/thumbdown.png" alt="Dislike"/>
+                </div>
+                <button data-id="13117" class="btnreply">Reply</button>
+                <div id="reply13117"></div>
+            </div>
+            <div class="commentdiv greenbg">
+                <span class="commentauthor">
+                    Diane Raabe - 
+                    <em class="green-text">Editor's Pick</em>
+                </span>
+                <span class="date">2019-06-25 13:29:13</span>
+                <p>
+                    Hello, thank you for getting back to me. I have been using your site since 2012! What is the daily quota? I will check out the link you sent, but I can't find any other site that gives us this info and it's so helpful. Some of the apps I develop add up to 30 venues for their events! Is it possible to pay for this site or do you soly rely on advertising? I work for a big firm and we really appreciate having this available. Hopefully this will continue to work for us.
+                    <br/>
+                    <br/>
+
+                    Best regards  ;-)
+                </p>
+                <div class="thmbs">
+                    <span id="points11145">9</span>
+                    <input class="btntb" type="image" data-id="11145" data-pn="1" src="/img/thumbup.png" alt="Like"/>
+                    <input class="btntb" type="image" data-id="11145" data-pn="2" src="/img/thumbdown.png" alt="Dislike"/>
+                </div>
+                <button data-id="11145" class="btnreply">Reply</button>
+                <div id="reply11145"></div>
+            </div>
+            <div class="commentdiv greenbg">
+                <span class="commentauthor">
+                    Charise Reynolds - 
+                    <em class="green-text">Editor's Pick</em>
+                </span>
+                <span class="date">2019-04-12 17:13:44</span>
+                <p>
+                    Thank you for this site.  It was so easy to use and helpful.  I am an Insurance Agent and need to know the longitude and 
+                    <br/>
+
+                    latitude coordinates.  Thanks again!
+                </p>
+                <div class="thmbs">
+                    <span id="points10240">4</span>
+                    <input class="btntb" type="image" data-id="10240" data-pn="1" src="/img/thumbup.png" alt="Like"/>
+                    <input class="btntb" type="image" data-id="10240" data-pn="2" src="/img/thumbdown.png" alt="Dislike"/>
+                </div>
+                <button data-id="10240" class="btnreply">Reply</button>
+                <div id="reply10240"></div>
+            </div>
+            <div class="commentdiv greenbg">
+                <span class="commentauthor">
+                    Guest - 
+                    <em class="green-text">Editor's Pick</em>
+                </span>
+                <span class="date">2019-04-11 09:24:44</span>
+                <p>Awesome. Would be amazing if it allowed multiple inputs though!</p>
+                <div class="thmbs">
+                    <span id="points10225">9</span>
+                    <input class="btntb" type="image" data-id="10225" data-pn="1" src="/img/thumbup.png" alt="Like"/>
+                    <input class="btntb" type="image" data-id="10225" data-pn="2" src="/img/thumbdown.png" alt="Dislike"/>
+                </div>
+                <button data-id="10225" class="btnreply">Reply</button>
+                <div id="reply10225"></div>
+            </div>
+            <div class="commentdiv replied">
+                <span class="commentauthor">SLB</span>
+                <span class="date">2020-06-05 19:44:25</span>
+                <p>Very useful tool</p>
+            </div>
+            <div class="commentdiv">
+                <span class="commentauthor">Guest</span>
+                <span class="date">2024-01-05 01:03:06</span>
+                <p>It is really amazing using this application to find my location via map. Thank you</p>
+                <div class="thmbs">
+                    <span id="points25476">1</span>
+                    <input class="btntb" type="image" data-id="25476" data-pn="1" src="/img/thumbup.png" alt="Like"/>
+                    <input class="btntb" type="image" data-id="25476" data-pn="2" src="/img/thumbdown.png" alt="Dislike"/>
+                </div>
+                <button data-id="25476" class="btnreply">Reply</button>
+                <div id="reply25476"></div>
+            </div>
+            <div class="commentdiv">
+                <span class="commentauthor">Ross Howard</span>
+                <span class="date">2023-10-11 17:27:23</span>
+                <p>It's not clear what is included in a "Geocode Process" for the paid subscription. Is that just one location or one batch of locations?</p>
+                <div class="thmbs">
+                    <span id="points25062">-3</span>
+                    <input class="btntb" type="image" data-id="25062" data-pn="1" src="/img/thumbup.png" alt="Like"/>
+                    <input class="btntb" type="image" data-id="25062" data-pn="2" src="/img/thumbdown.png" alt="Dislike"/>
+                </div>
+                <button data-id="25062" class="btnreply">Reply</button>
+                <div id="reply25062"></div>
+            </div>
+            <div class="commentdiv replied">
+                <span class="commentauthor">Editor</span>
+                <span class="date">2023-10-12 02:55:14</span>
+                <p>
+                    Hey Ross,
+                    <br/>
+
+                    You can visit our Products page for details: 
+                    <br/>
+
+                    https://www.latlong.net/products
+                    <br/>
+
+                    You can also send us an email for further info:
+                    <br/>
+
+                    https://www.latlong.net/contact.php
+                    <br/>
+
+                    Best regards.
+                </p>
+            </div>
+            <div class="commentdiv">
+                <span class="commentauthor">Merle Mulkey</span>
+                <span class="date">2023-09-27 16:55:10</span>
+                <p>Love to have this option to make embroidered gifts with the coordinates as the address for friends moving into new homes.</p>
+                <div class="thmbs">
+                    <span id="points24992">-2</span>
+                    <input class="btntb" type="image" data-id="24992" data-pn="1" src="/img/thumbup.png" alt="Like"/>
+                    <input class="btntb" type="image" data-id="24992" data-pn="2" src="/img/thumbdown.png" alt="Dislike"/>
+                </div>
+                <button data-id="24992" class="btnreply">Reply</button>
+                <div id="reply24992"></div>
+            </div>
+            <div class="commentdiv">
+                <span class="commentauthor">Dave Quecke</span>
+                <span class="date">2023-07-20 14:50:55</span>
+                <p>
+                    Hi, I guess I don't understand how the batch file process works. I emailed a small batch request a couple of days ago and it has disappeared. It is just a small batch of 123 addresses.
+                    <br/>
+
+                    How am I supposed to run it?
+                    <br/>
+                    <br/>
+
+                    Thanks for your time
+                </p>
+                <div class="thmbs">
+                    <span id="points24654">-4</span>
+                    <input class="btntb" type="image" data-id="24654" data-pn="1" src="/img/thumbup.png" alt="Like"/>
+                    <input class="btntb" type="image" data-id="24654" data-pn="2" src="/img/thumbdown.png" alt="Dislike"/>
+                </div>
+                <button data-id="24654" class="btnreply">Reply</button>
+                <div id="reply24654"></div>
+            </div>
+            <div class="commentdiv replied">
+                <span class="commentauthor">Editor</span>
+                <span class="date">2023-07-20 17:26:47</span>
+                <p>
+                    Hey Dave,
+                    <br/>
+
+                    If you submitted your data on our user panel, it will be placed in our process queue and it will be executed in a few days max.
+                    <br/>
+
+                    You can always contact us here:
+                    <br/>
+
+                    https://www.latlong.net/contact.php
+                    <br/>
+
+                    Best regards.
+                </p>
+            </div>
+            <div class="commentdiv">
+                <span class="commentauthor">Jan</span>
+                <span class="date">2023-06-25 10:41:07</span>
+                <p>
+                    I just signed up. I'm getting "You have 30 geocoding quota left for today."
+                    <br/>
+
+                    But I can't get the Lat Long of "Seoul" with your "Latitude and Longitude Finder" while when I google it I see it on your page?
+                </p>
+                <div class="thmbs">
+                    <span id="points24546">-2</span>
+                    <input class="btntb" type="image" data-id="24546" data-pn="1" src="/img/thumbup.png" alt="Like"/>
+                    <input class="btntb" type="image" data-id="24546" data-pn="2" src="/img/thumbdown.png" alt="Dislike"/>
+                </div>
+                <button data-id="24546" class="btnreply">Reply</button>
+                <div id="reply24546"></div>
+            </div>
+            <div class="commentdiv replied">
+                <span class="commentauthor">Editor</span>
+                <span class="date">2023-06-26 16:53:45</span>
+                <p>
+                    Hey Jan,
+                    <br/>
+
+                    Thanks for using Latlong. You can add country name/code for better results.
+                    <br/>
+
+                    Best regards.
+                </p>
+            </div>
+            <div class="commentdiv">
+                <span class="commentauthor">Jan</span>
+                <span class="date">2023-06-25 10:34:29</span>
+                <p>
+                    Please make the  narrower...
+                    <br/>
+
+                    (the 100px "min-height" only wastes space and makes us scroll when we need to get latitudes and longitudes of numerous cities/locations
+                    <br/>
+
+                    ("min-height:20px" is perfectly fine - I tried...:)
+                </p>
+                <div class="thmbs">
+                    <span id="points24545">-5</span>
+                    <input class="btntb" type="image" data-id="24545" data-pn="1" src="/img/thumbup.png" alt="Like"/>
+                    <input class="btntb" type="image" data-id="24545" data-pn="2" src="/img/thumbdown.png" alt="Dislike"/>
+                </div>
+                <button data-id="24545" class="btnreply">Reply</button>
+                <div id="reply24545"></div>
+            </div>
+            <div class="commentdiv">
+                <span class="commentauthor">Joe</span>
+                <span class="date">2023-06-11 04:56:53</span>
+                <p>I met my wife 50 years ago at a hotel in San Juan, PR and you provided me with the exact coordinates.  Very interesting!   Thank you, Joe</p>
+                <div class="thmbs">
+                    <span id="points24513">-3</span>
+                    <input class="btntb" type="image" data-id="24513" data-pn="1" src="/img/thumbup.png" alt="Like"/>
+                    <input class="btntb" type="image" data-id="24513" data-pn="2" src="/img/thumbdown.png" alt="Dislike"/>
+                </div>
+                <button data-id="24513" class="btnreply">Reply</button>
+                <div id="reply24513"></div>
+            </div>
+            <div class="commentdiv">
+                <span class="commentauthor">Guest</span>
+                <span class="date">2023-03-18 11:04:48</span>
+                <p>Do you offer any API call services please? Your results are very accurate! Thumbs UP!!!</p>
+                <div class="thmbs">
+                    <span id="points23885">6</span>
+                    <input class="btntb" type="image" data-id="23885" data-pn="1" src="/img/thumbup.png" alt="Like"/>
+                    <input class="btntb" type="image" data-id="23885" data-pn="2" src="/img/thumbdown.png" alt="Dislike"/>
+                </div>
+                <button data-id="23885" class="btnreply">Reply</button>
+                <div id="reply23885"></div>
+            </div>
+            <div class="commentdiv">
+                <span class="commentauthor">Christopher</span>
+                <span class="date">2023-01-03 17:16:19</span>
+                <p>Greetings, such an Excellent Website. I have Added a link back to this site for members to get the Lat and Lng from this website as Google Reverse GEO is disabled on sportkin. the link will display under the input field s for lat long at https://sportkin.com//location/p/111337?edit (111337) being the location ID Please let me know if this is not okay and will be revolked.    Is there a way I can grab the URL by address rather than https://www.latlong.net/c?NSW</p>
+                <div class="thmbs">
+                    <span id="points23433">-4</span>
+                    <input class="btntb" type="image" data-id="23433" data-pn="1" src="/img/thumbup.png" alt="Like"/>
+                    <input class="btntb" type="image" data-id="23433" data-pn="2" src="/img/thumbdown.png" alt="Dislike"/>
+                </div>
+                <button data-id="23433" class="btnreply">Reply</button>
+                <div id="reply23433"></div>
+            </div>
+            <div class="commentdiv replied">
+                <span class="commentauthor">Editor</span>
+                <span class="date">2023-01-04 10:14:37</span>
+                <p>
+                    Hi Christopher, 
+                    <br/>
+
+                    Thanks so much for adding a link to use. Unfortunately, there is no way to grab the lat long values. 
+                    <br/>
+
+                    Best regards and have a great year.
+                </p>
+            </div>
+            <div class="commentdiv">
+                <span class="commentauthor">Anonymous</span>
+                <span class="date">2022-12-23 05:33:53</span>
+                <p>I am very appreciative and grateful because of the content on this website!! Thank you so much and your hard work into creating this website is acknowledged.</p>
+                <div class="thmbs">
+                    <span id="points23359">-2</span>
+                    <input class="btntb" type="image" data-id="23359" data-pn="1" src="/img/thumbup.png" alt="Like"/>
+                    <input class="btntb" type="image" data-id="23359" data-pn="2" src="/img/thumbdown.png" alt="Dislike"/>
+                </div>
+                <button data-id="23359" class="btnreply">Reply</button>
+                <div id="reply23359"></div>
+            </div>
+            <div class="commentdiv">
+                <span class="commentauthor">Julie</span>
+                <span class="date">2022-12-10 15:32:20</span>
+                <p>Why are the lat long coordinates different from the GPS coordinates?  I would think that 42.982460N latitude would translate to GPS 42degrees 98'2460"N but it comes up below the map as 42degrees 58'56.856"N.</p>
+                <div class="thmbs">
+                    <span id="points23242">-3</span>
+                    <input class="btntb" type="image" data-id="23242" data-pn="1" src="/img/thumbup.png" alt="Like"/>
+                    <input class="btntb" type="image" data-id="23242" data-pn="2" src="/img/thumbdown.png" alt="Dislike"/>
+                </div>
+                <button data-id="23242" class="btnreply">Reply</button>
+                <div id="reply23242"></div>
+            </div>
+            <div class="commentdiv replied">
+                <span class="commentauthor">Oli</span>
+                <span class="date">2023-12-15 13:13:31</span>
+                <p>
+                    This is because a Degree is split into 60 minutes and these are split into 60 seconds, whereas 42.982460 is a decimal version. You can convert by multiplying the decimal remainder by 60 for minutes, then seconds.
+                    <br/>
+                    <br/>
+
+                    0.982460 * 60 = 58.9476 (58 minutes) AND 0.9476 * 60 = 56.856 (seconds)
+                </p>
+            </div>
+            <div class="commentdiv">
+                <span class="commentauthor">Anna</span>
+                <span class="date">2022-11-30 19:29:34</span>
+                <p>The software is amazing, but please add the option to create more than one order at the same time. Because it is time consuming to wait one hour until create another one.</p>
+                <div class="thmbs">
+                    <span id="points23146">-4</span>
+                    <input class="btntb" type="image" data-id="23146" data-pn="1" src="/img/thumbup.png" alt="Like"/>
+                    <input class="btntb" type="image" data-id="23146" data-pn="2" src="/img/thumbdown.png" alt="Dislike"/>
+                </div>
+                <button data-id="23146" class="btnreply">Reply</button>
+                <div id="reply23146"></div>
+            </div>
+            <div class="commentdiv replied">
+                <span class="commentauthor">Editor</span>
+                <span class="date">2022-12-01 09:39:36</span>
+                <p>
+                    Hi Anna, thanks so much for visiting our website.
+                    <br/>
+
+                    We will put this feature on our to-do list. ;)
+                    <br/>
+
+                    Best regards.
+                </p>
+            </div>
+            <div class="commentdiv">
+                <span class="commentauthor">Tom</span>
+                <span class="date">2022-11-25 19:27:16</span>
+                <p>Hello, is there a python coding script for this? I would really like to know how this was coded in python. Thanks!</p>
+                <div class="thmbs">
+                    <span id="points23116">2</span>
+                    <input class="btntb" type="image" data-id="23116" data-pn="1" src="/img/thumbup.png" alt="Like"/>
+                    <input class="btntb" type="image" data-id="23116" data-pn="2" src="/img/thumbdown.png" alt="Dislike"/>
+                </div>
+                <button data-id="23116" class="btnreply">Reply</button>
+                <div id="reply23116"></div>
+            </div>
+            <div class="commentdiv replied">
+                <span class="commentauthor">Editor</span>
+                <span class="date">2022-11-28 09:29:06</span>
+                <p>
+                    Hi Tom,
+                    <br/>
+
+                    No, we don't have that. 
+                    <br/>
+
+                    Thank you for visiting our website. Best regards.
+                </p>
+            </div>
+            <div class="commentdiv">
+                <span class="commentauthor">Tiffany Slackway</span>
+                <span class="date">2022-09-19 10:05:31</span>
+                <p>Thank you for your awesome line of stuff.</p>
+                <div class="thmbs">
+                    <span id="points22624">2</span>
+                    <input class="btntb" type="image" data-id="22624" data-pn="1" src="/img/thumbup.png" alt="Like"/>
+                    <input class="btntb" type="image" data-id="22624" data-pn="2" src="/img/thumbdown.png" alt="Dislike"/>
+                </div>
+                <button data-id="22624" class="btnreply">Reply</button>
+                <div id="reply22624"></div>
+            </div>
+            <div class="commentdiv">
+                <span class="commentauthor">Melinda</span>
+                <span class="date">2022-09-18 03:53:14</span>
+                <p>Helped me track down with a lot of hard work the exact location of the hacker who took over my phone. Now I send it off to Canadian Anti-Fraud Centre and take to the police. Judging by the home, they don't need my anything from me. As a single mom with no family, and unable to work from an accident where someone was intoxicated rear ended me I have nothing he could steal except the very small amount Insurance Disability gives. This has caused so much stress knowing as I type this he/she is watching. Google Gmail is how they got in. You cannot sign in or out of Gmail and its an open door for hackers. Googles response, delete Gmail from phone and tablet and use the computer. Google was attacked by phishing (sp)and secured their employees with a stick. But we're told delete our Gmail. How hard is it to build a sign in and out button? They certianally have enough apps to help hackers download apps that are completly hidden and 1Password by Google....thanks! I was in surgery and my phone was dead in recovery room and 181 texts were sent. Be careful, I've spoken to a lot of people and free wifi even bluetooth can let them in. Its worth the money to get a VPN instead of going through what I am. They have pictures of my kids and where they go to school and all my documents that no one wants a hacker to see. My health is declining fast and I have to contact the Government to make sure that everything is ok so my kids can safely get money once I'm gone and not him. Thank you for this, I can hand it over to police and Canadian Anti-Fraud Centre.</p>
+                <div class="thmbs">
+                    <span id="points22617"></span>
+                    <input class="btntb" type="image" data-id="22617" data-pn="1" src="/img/thumbup.png" alt="Like"/>
+                    <input class="btntb" type="image" data-id="22617" data-pn="2" src="/img/thumbdown.png" alt="Dislike"/>
+                </div>
+                <button data-id="22617" class="btnreply">Reply</button>
+                <div id="reply22617"></div>
+            </div>
+            <div class="commentdiv replied">
+                <span class="commentauthor">Editor</span>
+                <span class="date">2022-09-19 07:28:26</span>
+                <p>
+                    Hi Melinda, 
+                    <br/>
+
+                    We are so sorry to hear that. We hope that never happens again. We are very glad that our service helped with your problem.
+                    <br/>
+
+                    Best wishes.
+                </p>
+            </div>
+            <div class="commentdiv">
+                <span class="commentauthor">Guest</span>
+                <span class="date">2022-06-15 13:41:17</span>
+                <p>There's a bug in the system. If you keep moving the map in one direction (E/W), the numbers will keep increase/decrease, without switching the sign or nullifying the value. To make a point, I got to (39.283294, -2770.026743).</p>
+                <div class="thmbs">
+                    <span id="points21963">4</span>
+                    <input class="btntb" type="image" data-id="21963" data-pn="1" src="/img/thumbup.png" alt="Like"/>
+                    <input class="btntb" type="image" data-id="21963" data-pn="2" src="/img/thumbdown.png" alt="Dislike"/>
+                </div>
+                <button data-id="21963" class="btnreply">Reply</button>
+                <div id="reply21963"></div>
+            </div>
+            <div class="commentdiv replied">
+                <span class="commentauthor">Editor</span>
+                <span class="date">2022-06-17 06:27:00</span>
+                <p>
+                    We will check for this issue. Thank you for feedback,
+                    <br/>
+
+                    best regards.
+                </p>
+            </div>
+            <div class="commentdiv">
+                <span class="commentauthor">Janice Hatcher Smith</span>
+                <span class="date">2022-03-28 21:47:49</span>
+                <p>I have 497 searches, but it will not allow me to search over 5, what is wrong.  I thought  I purchased package # 2</p>
+                <div class="thmbs">
+                    <span id="points21493">3</span>
+                    <input class="btntb" type="image" data-id="21493" data-pn="1" src="/img/thumbup.png" alt="Like"/>
+                    <input class="btntb" type="image" data-id="21493" data-pn="2" src="/img/thumbdown.png" alt="Dislike"/>
+                </div>
+                <button data-id="21493" class="btnreply">Reply</button>
+                <div id="reply21493"></div>
+            </div>
+            <div class="commentdiv replied">
+                <span class="commentauthor">Editor</span>
+                <span class="date">2022-03-29 07:42:33</span>
+                <p>
+                    Hello, thanks for using latlong.net.
+                    <br/>
+
+                    If you can contact us with your order id, we will check the problem. ;)
+                    <br/>
+
+                    https://www.latlong.net/contact.php
+                    <br/>
+                    <br/>
+
+                    best regards.
+                </p>
+            </div>
+            <div class="commentdiv">
+                <span class="commentauthor">Batch Geocoding Errors</span>
+                <span class="date">2022-03-03 20:38:20</span>
+                <p>The code doesn't seem to work right. I had to geocode over 200 cities. I double-checked them (since it is critical these coordinates are correct), and while most were right a few dozen were wrong. The "wrong" coordinates were offset by one so that the coordinates for a given city were given to the city before or after where it should have gone. Since I couldn't trust the data I ended up having to geocode all my data manually.</p>
+                <div class="thmbs">
+                    <span id="points21388">3</span>
+                    <input class="btntb" type="image" data-id="21388" data-pn="1" src="/img/thumbup.png" alt="Like"/>
+                    <input class="btntb" type="image" data-id="21388" data-pn="2" src="/img/thumbdown.png" alt="Dislike"/>
+                </div>
+                <button data-id="21388" class="btnreply">Reply</button>
+                <div id="reply21388"></div>
+            </div>
+            <div class="commentdiv replied">
+                <span class="commentauthor">Editor</span>
+                <span class="date">2022-03-04 14:46:59</span>
+                <p>
+                    Hello, thanks for using latlong.net.
+                    <br/>
+
+                    If you can contact us with your order id, we will check the problem. ;)
+                    <br/>
+
+                    https://www.latlong.net/contact.php
+                    <br/>
+                    <br/>
+
+                    best regards.
+                </p>
+            </div>
+            <div class="commentdiv">
+                <span class="commentauthor">Arancha</span>
+                <span class="date">2022-02-28 11:47:19</span>
+                <p>
+                    Hello,
+                    <br/>
+
+                    Your website is very useful. However, when entering the Lat and Long coordinates of addresses in Ireland, the portal provides the correct address but not the Eircode (see https://finder.eircode.ie/#/). Could you do that? we are thinking of buy product if the Eircode is provided. thanks
+                </p>
+                <div class="thmbs">
+                    <span id="points21360">3</span>
+                    <input class="btntb" type="image" data-id="21360" data-pn="1" src="/img/thumbup.png" alt="Like"/>
+                    <input class="btntb" type="image" data-id="21360" data-pn="2" src="/img/thumbdown.png" alt="Dislike"/>
+                </div>
+                <button data-id="21360" class="btnreply">Reply</button>
+                <div id="reply21360"></div>
+            </div>
+            <div class="commentdiv replied">
+                <span class="commentauthor">Editor</span>
+                <span class="date">2022-02-28 12:55:35</span>
+                <p>
+                    Hello,
+                    <br/>
+
+                    Thanks a lot for your visiting our website.
+                    <br/>
+
+                    Unfortunately, we don't provide Eircode for now. 
+                    <br/>
+
+                    Best regards.
+                </p>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>
+            &copy; 2012-2024 
+            <a href="https://www.latlong.net/" title="Latitude and Longitude Finder">www.LatLong.net</a>
+        </p>
+        <ul class="list-horizontal">
+            <li>
+                <a href="/refund-policy" title="Refund Policy">Refund Policy</a>
+            </li>
+            <li>
+                <a href="/faq" title="Frequently Asked Questions">Frequently Asked Questions</a>
+            </li>
+            <li>
+                <a href="/privacy.php" title="Privacy Policy and Cookies">Privacy Policy and Cookies</a>
+            </li>
+            <li>
+                <a href="/contact.php" title="Contact Us">Contact Us</a>
+            </li>
+            <li>
+                <a href="https://twitter.com/latlong_net" title="Lat Long on Twitter" rel="noopener">LatLong.net Twitter</a>
+            </li>
+            <li>
+                <a href="http://feeds.feedburner.com/LatLong" title="Lat Long RSS">RSS</a>
+            </li>
+        </ul>
+        <p>We do not guarantee the accuracy of the given coordinates of the places in our database. Please use Latlong.net at your own risk.</p>
+    </footer>
+
+    <div class="stickyAd">
+        <div pm-adunit='/22815767462/LLG_160v_Sticky'></div>
+    </div>
+    <div class="stickyAdMobile" style="text-align:center;background-color:#fff">
+        <div pm-adunit='/22815767462/LLG_Mob_300v_sticky'></div>
+    </div>
+    <div pm-adunit='/22815767462/LLG_Desktop_Anchor'></div>
+
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","name":"Lat Long Finder","alternateName":"Latitude and Longitude Finder","url":"https://www.latlong.net/","sameAs":["https://twitter.com/latlong_net"]}</script>
+    <script>
+    var yid = 'main';
+    function pscm(e) {
+        e.preventDefault && e.preventDefault();
+        var t = document.getElementById("commentname").value,
+            n = document.getElementById("commenttext").value,
+            m = new XMLHttpRequest,
+            a = "commentname=" + encodeURIComponent(t) + "&yid=" + encodeURIComponent(yid) + "&usid=" + encodeURIComponent(document.getElementById("usid").value) + "&commenttext=" + encodeURIComponent(n);
+        return m.open("POST", "/_addcomment.php", !0), m.setRequestHeader("Content-type", "application/x-www-form-urlencoded"), m.onreadystatechange = function() {
+            4 === m.readyState && 200 === m.status ? (document.getElementById("tagmessage").innerHTML = "Your comment saved successfully and will publish after approval.", document.getElementById("commentname").value = "", document.getElementById("commenttext").value = "") : document.getElementById("tagmessage").innerHTML = "There was an error, please try again later.",
+            document.getElementById("tagmessage").style.visibility = "visible"
+        }, m.send(a), !1
+    }
+    var frmcomment = document.getElementById("frmcomment");
+    frmcomment.attachEvent ? frmcomment.attachEvent("submit", pscm) : frmcomment.addEventListener("submit", pscm);
+    var clsn = document.getElementsByClassName("btnreply");
+    var crep = function() {
+        document.getElementById("usid").value = this.getAttribute("data-id");
+        var fragment = document.createDocumentFragment();
+        fragment.appendChild(document.getElementById('frmcomment'));
+        document.getElementById('reply' + this.getAttribute("data-id")).appendChild(fragment);
+    };
+    for (var i = 0; i < clsn.length; i++) {
+        clsn[i].addEventListener('click', crep, false);
+    }
+
+    var ytup = document.getElementsByClassName("btntb");
+    for (var i = 0; i < ytup.length; i++) {
+        ytup[i].addEventListener('click', yoy, false);
+    }
+
+
+    function yoy() {
+        var xhttp;
+        var pidd = this.getAttribute("data-id");
+        if (window.XMLHttpRequest) {
+            xhttp = new XMLHttpRequest();
+        } else {
+            xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status === 200) {
+                if (this.responseText !== "") {
+                    document.getElementById("points" + pidd).innerHTML = this.responseText;
+                }
+            }
+        };
+        var a = "?yid=" + encodeURIComponent(this.getAttribute("data-id")) + "&pn=" + encodeURIComponent(this.getAttribute("data-pn"));
+
+        xhttp.open("GET", "/_crt" + a, true);
+        xhttp.send();
+    }
+    </script>
+    <script>
+
+    function dropMenu() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+            x.className += " responsive";
+        } else {
+            x.className = "topnav";
+        }
+    }
+    document.addEventListener("scrollend", e => {
+        moveAds()
+    });
+    </script>
+    <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js" integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q==" crossorigin=""></script>
+    <script>
+    var mymap = L.map('latlongmap');
+    var mmr = L.marker([0, 0]);
+    mmr.bindPopup('0,0');
+    mmr.addTo(mymap);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png?{foo}', {
+        foo: 'bar',
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(mymap);
+
+    mymap.on('click', onMapClick);
+
+    sm(0, 0, 2)
+    function isll(num) {
+        var val = parseFloat(num);
+        if (!isNaN(val) && val <= 90 && val >= -90)
+            return true;
+        else
+            return false;
+    }
+
+    function onMapClick(e) {
+        mmr.setLatLng(e.latlng);
+        setui(e.latlng.lat, e.latlng.lng, mymap.getZoom());
+    }
+
+    function dec2dms(e, t) {
+        document.getElementById("dms-lat").innerHTML = getdms(e, !0),
+        document.getElementById("dms-lng").innerHTML = getdms(t, !1)
+    }
+    function getdms(e, t) {
+        var n = 0,
+            m = 0,
+            l = 0,
+            a = "X";
+        return a = t && 0 > e ? "S" : !t && 0 > e ? "W" : t ? "N" : "E", d = Math.abs(e), n = Math.floor(d), l = 3600 * (d - n), m = Math.floor(l / 60), l = Math.round(1e4 * (l - 60 * m)) / 1e4, n + "&deg; " + m + "' " + l + "'' " + a
+    }
+
+    function sm(lt, ln, zm) {
+        setui(lt, ln, zm);
+        mmr.setLatLng(L.latLng(lt, ln));
+        mymap.setView([lt, ln], zm);
+    }
+
+    function setui(lt, ln, zm) {
+        lt = Number(lt).toFixed(6);
+        ln = Number(ln).toFixed(6);
+        mmr.setPopupContent(lt + ',' + ln).openPopup();
+        document.getElementById("lat").value = lt;
+        document.getElementById("lng").value = ln;
+        document.getElementById("latlngspan").innerHTML = "(" + lt + ", " + ln + ")";
+        document.getElementById("coordinatesurl").value = "https://www.latlong.net/c/?lat=" + lt + "&long=" + ln;
+        document.getElementById("coordinateslink").innerHTML = '&lt;a href="https://www.latlong.net/c/?lat=' + lt + "&amp;long=" + ln + '" target="_blank"&gt;(' + lt + ", " + ln + ")&lt;/a&gt;";
+        dec2dms(lt, ln);
+        document.getElementById('latlongmape').src = 'https://www.google.com/maps/embed/v1/view?key=AIzaSyALrSTy6NpqdhIOUs3IQMfvjh71td2suzY&maptype=satellite&' + 'center=' + lt + ',' + ln + '&zoom=' + zm;
+    }
+    </script>
+</body>
+</html>
