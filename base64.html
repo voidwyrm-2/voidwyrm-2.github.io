@@ -1,24 +1,23 @@
-
 <!DOCTYPE html>
 <html>
-<head>
-<script>
-function encode() {
-    var text = document.getElementById("textinput");
-    var output = btoa(text);
-    alert("encoded text:\n" + output);
-}
-</script>
-</head>
-<body>
-<h2>A test of a password to access information</h2>
+    <head>
+        <script>
+        function encode() {
+            var text = document.getElementById("textinput");
+            var output = btoa(text);
+            alert("encoded text:\n" + output);
+        }
+        </script>
+    </head>
+    <body>
+        <h2>A test of a password to access information</h2>
 
-<p id="main">Type some text then press "encode" to encode it to Base64</p>
-<textarea id="textinput">
+        <p id="main">Type some text then press "encode" to encode it to Base64</p>
+        <textarea id="textinput">
 
-</textarea>
-<button type="button" onclick="encode()">encode</button>
+        </textarea>
+        <button type="button" onclick="encode()">encode</button>
 
-<!--<output id="b64output" for="outp"></output>-->
-</body>
+        <!--<output id="b64output" for="outp"></output>-->
+    </body>
 </html>
