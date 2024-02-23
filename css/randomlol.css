@@ -1,0 +1,5 @@
+body {
+    background-color: white;
+    background-image: url(/assets/RepeatingCat.png);
+    background-repeat: repeat;
+}
