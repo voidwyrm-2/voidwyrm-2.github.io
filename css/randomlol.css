@@ -1,13 +1,9 @@
 body {
-    background-color: white;
-    background-image: url(/assets/RepeatingCat.png);
+    background-color: rgba(255, 255, 255, 0);
+    background-image: url(/assets/RepeatingCat.gif);
     background-repeat: repeat;
 }
 
 p {
-    color: brown;
-}
-
-label {
     color: brown;
 }

@@ -6,27 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
-        const log = document.querySelector(".event-log-contents");
-        const reload = document.querySelector("#reload");
+        function doSomething() {
+            console.info("DOM loaded");
+        }
 
-        reload.addEventListener("click", () => {
-            log.textContent = "";
-            setTimeout(() => {
-                window.location.reload(true);
-            }, 200);
-        });
-
-        window.addEventListener("load", (event) => {
-            log.textContent += "load\n";
-        });
-
-        document.addEventListener("readystatechange", (event) => {
-            log.textContent += `readystate: ${document.readyState}\n`;
-        });
-
-        document.addEventListener("DOMContentLoaded", (event) => {
-            log.textContent += `DOMContentLoaded\n`;
-        });
+        if (document.readyState === "loading") {
+            // Loading hasn't finished yet
+            document.addEventListener("DOMContentLoaded", doSomething);
+        } else {
+            // `DOMContentLoaded` has already fired
+            doSomething();
+        }
     </script>
 </head>
 
