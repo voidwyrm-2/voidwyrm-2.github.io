@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>
+        Song Guessing Game
+    </title>
+    <script>
+        clyric = '[PLACE_HOLDER_LYRIC]'
+        const lyrics = [
+            '"LA, LA, LA, LA, LA, LA, LA"',
+            '"Doctor I can\'t tell if I\'m not me"',
+            '"I\'ll be the guard dog of all your fever dreams"',
+            '"Oh, if you\'re so sure it\'s rational"',
+            '"Woo! It\'s the warmer season so I can\'t wear jeans"',
+            '"I came in a bit before the opening set"',
+            '"Why don\'t they understand? It\'s just a cryin\' shame',
+            '"Who would\'ve thought that a boy like me could come to this?"',
+            '"We\'re breakin\' out this time"',
+            '"Picked a fight with the gods, I\'m the giant slayer"',
+            '"I need a doctor, oh"',
+            '"It\'s funny how the world keeps turning"'
+        ]
+        const lyricsdict = {
+            '"LA, LA, LA, LA, LA, LA, LA"': 'IC-0N\'s Theme',
+            '"Doctor I can\'t tell if I\'m not me"': 'The Mind Electric',
+            '"I\'ll be the guard dog of all your fever dreams"': 'Immortals',
+            '"Oh, if you\'re so sure it\'s rational"': 'Warrior',
+            '"Woo! It\'s the warmer season so I can\'t wear jeans"': 'Jort Storm',
+            '"I came in a bit before the opening set"': 'Bubbly',
+            '"Why don\'t they understand? It\'s just a cryin\' shame': 'Grease',
+            '"Who would\'ve thought that a boy like me could come to this?"': ['I Just Died In Your Arms Tonight', '(I Just) Died In Your Arms Tonight'],
+            '"We\'re breakin\' out this time"': 'Free Energy',
+            '"Picked a fight with the gods, I\'m the giant slayer"': 'Gladiator',
+            '"I need a doctor, oh"': '0Doctor',
+            '"It\'s funny how the world keeps turning"': 'Starlight'
+        }
+
+        function randomlyric() { return lyrics[Math.floor(Math.random() * lyrics.length)]; }
+
+        function newlyric() {
+            const lyr = randomlyric();
+            const myHeading = document.getElementById("songguessinggame").querySelector('b');
+            myHeading.textContent = lyr;
+            clyric = lyr;
+        }
+
+        function iscorrect(input) {
+            const ans = lyricsdict[clyric]
+            if (typeof ans == 'object') {
+                for (a in ans) {
+                    if (input == a) return true;
+                }
+            } else {
+                if (input == ans) return true;
+            }
+        }
+
+        function checkanswer() {
+            const password = document.getElementById("answer").value;
+            if (iscorrect(password)) {
+                alert("Correct! yaaaay!");
+                newlyric();
+            }
+            else {
+                alert("That's wrong");
+                alert("Idiot");
+                newlyric();
+            }
+        }
+
+        if (document.readyState === "loading") {
+            // Loading hasn't finished yet
+            document.addEventListener("DOMContentLoaded", newlyric);
+        } else {
+            // `DOMContentLoaded` has already fired
+            newlyric();
+        }
+    </script>
+</head>
+
+<body>
+    <h1>
+        Play the Song Guessing Game!
+        <br>
+        Guess which song the given lyric is from!
+    </h1>
+    <h2>
+        (The song name is fully capitalized, and anything in paratheses that isn't part of the title is ignored, e.g.
+        for "Warrior (Bonus Track)" you would give "Warrior")
+    </h2>
+    <p id="songguessinggame">
+        <b>
+            [PLACE_HOLDER_LYRIC]
+        </b>
+    </p>
+    <form>
+        <label for="answer">Enter your answer: </label>
+        <input type="text" id="answer">
+        <input type="button" value="Submit Answer" onclick="checkanswer();" />
+    </form>
+    <!--Function to check password the already set password is admin-->
+</body>
+
+</html>
