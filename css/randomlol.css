@@ -1,9 +1,19 @@
 body {
     background-color: rgba(255, 255, 255, 0);
-    background-image: url(/assets/RepeatingCat.gif);
+    background-image: url(/assets/randomlol/RepeatingCat.gif);
     background-repeat: repeat;
 }
 
 p {
     color: brown;
 }
+
+b {
+    color: brown;
+}
+
+/*
+a {
+    color: rgb(220, 71, 71);
+}
+*/
