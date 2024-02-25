@@ -2,7 +2,8 @@
 <html>
 
 <head>
-    <script>
+    <script id="main">
+
         const spamtonlines = [
             'HEY      EVERY      !! IT\'S ME!!!',
             'EV3RY  BUDDY  \'S FAVORITE [[Number 1 Rated Salesman1997]]',
@@ -37,8 +38,24 @@
             'HAEAHAEAHAEAHAEAH!!'
         ]
         function spamtongspamton() {
-            const myHeading = document.querySelector("p").querySelector('b');
-            myHeading.textContent = spamtonlines[Math.floor(Math.random() * spamtonlines.length)];
+            const pb1 = document.getElementById('b1');
+            const pb2 = document.getElementById('b2');
+            const pb3 = document.getElementById('b3');
+            const roll = Math.floor(Math.random() * 100)
+            console.log('sauve_or_spamton_roll: ' + roll.toString())
+            if (roll > 90) {
+                document.getElementById("spamton").remove();
+                pb1.textContent = 'Hola';
+                pb2.textContent = 'You seem to have caught me...';
+                pb3.textContent = 'Mid-Suavemente';
+            } else {
+                document.getElementById("sauvemente").remove();
+                document.getElementById("b2").remove();
+                document.getElementById("b3").remove();
+                document.getElementById("br1").remove();
+                pb1.textContent = spamtonlines[Math.floor(Math.random() * spamtonlines.length)];
+            }
+
         }
 
         if (document.readyState === "loading") {
@@ -50,20 +67,32 @@
         }
     </script>
 </head>
-<element></element>
 
 <body>
+    <div data-video="VIDEO_ID" data-autoplay="0" data-loop="1" id="youtube-audio">
+    </div>
     <h1>
         404: Page Not Found
     </h1>
-    <p>
-        <b>
-            [[BIG SHOT!!!]]
-        </b>
-    </p>
-    <p>
+    <b id="b1">
+        [[BIG SHOT!!!]]
+    </b>
+    <br id="br1">
+    <b id="b2"></b>
+    <br id="br2">
+    <b id="b3"></b>
+    <p id="spamton">
         <img src="https://static.wikia.nocookie.net/deltarune/images/d/d9/Spamton_battle_static.png"
-            style="width:70px;height:100px;">
+            style="width:80px;height:110px;">
+    </p>
+    <br>
+    <p id="sauvemente">
+        <!--start at "Hola": start=4, start at "Mid-sauvemente": start=7 , start after "Mid-sauvemente": start=-->
+        <iframe width="560" height="315"
+            src="https://www.youtube.com/embed/yNCgpaMlOcs?si=RGDjHz5ZUJTShfLD&autoplay=1&amp;start=9"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
     </p>
     <!--<p>
             WOAH!! IF IT ISN"T A...

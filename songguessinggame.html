@@ -3,10 +3,42 @@
 <html>
 
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/png" href="/assets/SGG.png">
+
     <title>
         Song Guessing Game
     </title>
     <script>
+        function setCookie(name, value, days) {
+            var expires = "";
+            if (days) {
+                var date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                expires = "; expires=" + date.toUTCString();
+            }
+            document.cookie = name + "=" + (value || "") + expires + "; path=/; domain=" + location.hostname;
+        }
+
+        function getCookie(name) {
+            var nameEQ = name + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+            }
+            return null;
+        }
+
+        function eraseCookie(name) {
+            document.cookie = name + '=; Max-Age=-1;';
+        }
+
+
+
         clyric = '[PLACE_HOLDER_LYRIC]'
         const lyrics = [
             '"LA, LA, LA, LA, LA, LA, LA"',
@@ -20,62 +52,126 @@
             '"We\'re breakin\' out this time"',
             '"Picked a fight with the gods, I\'m the giant slayer"',
             '"I need a doctor, oh"',
-            '"It\'s funny how the world keeps turning"'
+            '"It\'s funny how the world keeps turning"',
+            '"Now they see my blood on their sneakers"'
         ]
-        const lyricsdict = {
-            '"LA, LA, LA, LA, LA, LA, LA"': 'IC-0N\'s Theme',
-            '"Doctor I can\'t tell if I\'m not me"': 'The Mind Electric',
-            '"I\'ll be the guard dog of all your fever dreams"': 'Immortals',
-            '"Oh, if you\'re so sure it\'s rational"': 'Warrior',
-            '"Woo! It\'s the warmer season so I can\'t wear jeans"': 'Jort Storm',
-            '"I came in a bit before the opening set"': 'Bubbly',
-            '"Why don\'t they understand? It\'s just a cryin\' shame': 'Grease',
-            '"Who would\'ve thought that a boy like me could come to this?"': ['I Just Died In Your Arms Tonight', '(I Just) Died In Your Arms Tonight'],
-            '"We\'re breakin\' out this time"': 'Free Energy',
-            '"Picked a fight with the gods, I\'m the giant slayer"': 'Gladiator',
-            '"I need a doctor, oh"': '0Doctor',
-            '"It\'s funny how the world keeps turning"': 'Starlight'
-        }
+        const lyrics_ans = [
+            'IC-0n\'s Theme',
+            'The Mind Electric',
+            'Immortals',
+            'Warrior',
+            'Jort Storm',
+            'Bubbly',
+            'Grease',
+            ['I Just Died In Your Arms Tonight', '(I Just) Died In Your Arms Tonight'],
+            'Free Energy',
+            'Gladiator',
+            '0Doctor',
+            'Starlight',
+            'Cabinet Man'
+        ]
 
-        function randomlyric() { return lyrics[Math.floor(Math.random() * lyrics.length)]; }
+        function randomlyric() { return Math.floor(Math.random() * lyrics.length); }
 
         function newlyric() {
-            const lyr = randomlyric();
-            const myHeading = document.getElementById("songguessinggame").querySelector('b');
-            myHeading.textContent = lyr;
-            clyric = lyr;
+            const lyrind = randomlyric();
+            const sgglyr = document.getElementById("songguessinggame").querySelector('b');
+            sgglyr.textContent = lyrics[lyrind];
+            clyric = lyrind;
         }
 
+        function clyriccheck() {
+            if (clyric == '[PLACE_HOLDER_LYRIC]') {
+                throw new Error('clyric has not been loaded!');
+            }
+        }
+
+        function newlyriccheck() {
+            newlyric();
+            clyriccheck();
+        }
+
+
         function iscorrect(input) {
-            const ans = lyricsdict[clyric]
+            const ans = lyrics_ans[clyric]
+            clyriccheck();
             if (typeof ans == 'object') {
+                console.log('got "is object"; correct answer: ' + ans)
                 for (a in ans) {
-                    if (input == a) return true;
+                    console.log('checking answer "' + lyrics_ans[a] + '"...');
+                    if (input == lyrics_ans[a]) {
+                        console.log('"' + input + '" is "' + lyrics_ans[a] + '"!');
+                        return true;
+                    }
+                    else {
+                        console.log('"' + input + '" is not "' + lyrics_ans[a] + '"!');
+                    }
                 }
             } else {
                 if (input == ans) return true;
             }
         }
 
+        function updatescore() {
+            const userscorecookie = getCookie('sgguserscorecookie');
+            const scorebolderinit = document.getElementById("scorebolder");
+            scorebolderinit.textContent = 'Your Score: ' + userscorecookie.replace('wins=', '');
+
+        }
+
+        function addpoints(amount) {
+            const userscorecookie = getCookie('sgguserscorecookie');
+            const newpoints = amount + Number(userscorecookie.replace('wins=', ''))
+            setCookie('sgguserscorecookie', 'wins=' + newpoints.toString(), 1000000);
+            location.reload();
+            updatescore();
+        }
+
         function checkanswer() {
             const password = document.getElementById("answer").value;
             if (iscorrect(password)) {
+                addpoints(1)
                 alert("Correct! yaaaay!");
-                newlyric();
+                //setCookie("sggcookie", "username=; wins=", 1000000);
+                newlyriccheck();
             }
             else {
-                alert("That's wrong");
-                alert("Idiot");
-                newlyric();
+                //alert("That's wrong");
+                //alert("Idiot");
+                newlyriccheck();
             }
+        }
+
+
+        function resetscore() {
+            console.log('user clicked reset button')
+            const reply = confirm('Are you sure you want to reset your score and username?')
+            if (!reply) {
+                console.log('user canceled reset')
+                return reply
+            } else {
+                console.log('user continued with reset')
+                eraseCookie('sggusernamecookie');
+                eraseCookie('sgguserscorecookie');
+                location.reload();
+            }
+        }
+
+
+        function init() {
+            const usernamecookie = getCookie('sggusernamecookie');
+            const userscorecookie = getCookie('sgguserscorecookie');
+            if (usernamecookie == null || userscorecookie == null) window.location = "sgglogin.html";
+            updatescore()
+            newlyriccheck();
         }
 
         if (document.readyState === "loading") {
             // Loading hasn't finished yet
-            document.addEventListener("DOMContentLoaded", newlyric);
+            document.addEventListener("DOMContentLoaded", init);
         } else {
             // `DOMContentLoaded` has already fired
-            newlyric();
+            init();
         }
     </script>
 </head>
@@ -100,7 +196,8 @@
         <input type="text" id="answer">
         <input type="button" value="Submit Answer" onclick="checkanswer();" />
     </form>
-    <!--Function to check password the already set password is admin-->
+    <p><b id="scorebolder">Your Score: [SCORE]</b></p>
+    <input type="button" value="Reset Score And Username?" onclick="resetscore()" />
 </body>
 
 </html>

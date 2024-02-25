@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/png" href="/assets/SGG.png">
+
+    <link rel="stylesheet" href="/css/sgglogin.css">
+    <title>
+        Song Guessing Game
+    </title>
+    <script>
+        function setCookie(name, value, days) {
+            var expires = "";
+            if (days) {
+                var date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                expires = "; expires=" + date.toUTCString();
+            }
+            document.cookie = name + "=" + (value || "") + expires + "; path=/; domain=" + location.hostname;
+        }
+
+        function getCookie(name) {
+            var nameEQ = name + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+            }
+            return null;
+        }
+
+        function eraseCookie(name) {
+            document.cookie = name + '=; Max-Age=-1;';
+        }
+
+
+        function tosggmain() {
+            window.location = "songguessinggame.html";
+        }
+
+        function usercheck() {
+            const usercookie = getCookie("sggcookie")
+            if (usercookie != null) tosggmain();
+        }
+
+        function checkusername() {
+            var confirmPassword = "admin";
+            var username = document.getElementById("usernameinput").value;
+            if (username != "" && username != null && username != " ") {
+                //console.log('username is "' + username + '"!')
+                setCookie("sggusernamecookie", "username=" + username, 1000000);
+                setCookie("sgguserscorecookie", "wins=0", 1000000);
+                tosggmain();
+            }
+            else {
+                alert("username can't be empty");
+            }
+        }
+
+        if (document.readyState === "loading") {
+            // Loading hasn't finished yet
+            document.addEventListener("DOMContentLoaded", usercheck);
+        } else {
+            // `DOMContentLoaded` has already fired
+            usercheck();
+        }
+    </script>
+</head>
+
+<body>
+    <form class="usernameform" id="maininput">
+        <p>Please enter a username: </p>
+        <input type="text" id="usernameinput" maxlength="20">
+        <br>
+        <br>
+        <input type="button" id="buttonsubmit" value="Submit" onclick="checkusername();" />
+    </form>
+</body>
+
+</html>

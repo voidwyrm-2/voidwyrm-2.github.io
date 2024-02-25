@@ -92,7 +92,7 @@ with open (fullpath, writingmode) as htmlfile:
     if btype in (None, ''): towrite = htmltemplates.gettemplate('basic')
     else:
         if btype in templates:
-            if css: towrite = str(htmltemplates.gettemplate(btype)).replace('[CSS_PATH]', filename)
+            if css: towrite = str(htmltemplates.gettemplate(btype)).replace('[CSS_PATH]', fullpath.replace('/', '').removesuffix('.html'))
             else: towrite = htmltemplates.gettemplate(btype)
         else: print('that isn\' an available html base/template!')
     if writingmode == 'wt': htmlfile.write(towrite)
@@ -104,7 +104,7 @@ else: print('new file created!')
 
 
 if css:
-    with open('./css/' + filename + '.css', writingmode) as cssfile:
+    with open('./css/' + fullpath.replace('/', '').removesuffix('.html') + '.css', writingmode) as cssfile:
         if writingmode == 'wt': cssfile.write(cssbase)
         elif writingmode == 'at': cssfile.write('\n\n\n\n\n' + cssbase)
         else: cssfile.write(cssbase)
