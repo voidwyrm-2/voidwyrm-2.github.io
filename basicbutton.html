@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="/css/basicbutton.css">
+    <title>Basic Button</title>
+    <script>
+
+        function setCookie(name, value, days) {
+            var expires = "";
+            if (days) {
+                var date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                expires = "; expires=" + date.toUTCString();
+            }
+            document.cookie = name + "=" + (value || "") + expires + "; path=/; domain=" + location.hostname;
+        }
+        function getCookie(name) {
+            var nameEQ = name + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+            }
+            return null;
+        }
+        function eraseCookie(name) {
+            document.cookie = name + '=; Max-Age=-1;';
+        }
+
+
+        function button_makecookie() {
+            alert("You clicked me!");
+            alert("You've been given a cookie, chump!")
+            setCookie("testcookie", "why=oh dear;", 1)
+        }
+
+        function button_showcookie() {
+            let gottencookie = getCookie("testcookie")
+            alert("here da cookie:\n" + gottencookie);
+        }
+
+        function button_deletecookie() {
+            eraseCookie("testcookie")
+            alert("deleted da cookie");
+        }
+    </script>
+</head>
+
+<body>"
+    <button class="styled" type="button" onclick="button_makecookie()">Click Me!</button>
+    <button class="styled" type="button" onclick="button_showcookie()">Or Click Me!</button>
+    <button class="styled" type="button" onclick="button_deletecookie()">Click Me, Too!</button>
+</body>
+
+</html>

@@ -1,15 +1,15 @@
 body {
-    background-color: rgba(255, 255, 255, 0);
+    background-color: rgb(73, 73, 73);
     background-image: url(/assets/randomlol/RepeatingCat.gif);
     background-repeat: repeat;
 }
 
-p {
-    color: brown;
+.imageboardmain p {
+    color: rgb(242, 51, 51);
 }
 
-b {
-    color: brown;
+.imageboardmain b {
+    color: rgb(242, 51, 51);
 }
 
 /*
@@ -19,5 +19,36 @@ a {
 */
 
 h1 {
-    color: rgb(216, 58, 58);
+    color: rgb(242, 51, 51);
+    font: small-caps bold 1.5rem sans-serif;
+    text-align: center;
+}
+
+#liamcredits {
+
+    color: rgb(242, 51, 51);
+    font: small-caps bold 1.5rem sans-serif;
+    padding-top: 10%;
+}
+
+#scpcredits {
+    color: rgb(242, 51, 51);
+    font: small-caps bold 1.5rem sans-serif;
+    padding-top: 20%;
+}
+
+.padding1 {
+    padding-top: 10%;
+}
+
+.padding3 {
+    padding-top: 30%;
+}
+
+.linkie {
+    color: rgb(195, 195, 195);
+}
+
+.top {
+    font: small-caps bold 1.8rem sans-serif;
 }

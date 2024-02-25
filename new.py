@@ -1,6 +1,15 @@
 '''let's me easily create new html webpages'''
 import argparse
 from pathlib import Path
+from new_assets import htmltemplates
+
+
+
+def removeitems(list: list, items: list | tuple):
+    out = []
+    for i in list:
+        if i not in items: out.append(i)
+    return out
 
 
 
@@ -8,88 +17,47 @@ CANOVERWRITE = False
 CANAPPEND = True
 
 
+#<link rel="icon" type="image/png" href="">
 
-htmlbases = {
-    'basic': '''<!DOCTYPE html>
-
-<html>
-<head>
-    <title>
-        Page Title
-    </title>
-</head>
-<body>
-    <h1>
-        This is a Heading
-    </h1>
-    <p>
-        This is a paragraph.
-    </p>
-</body>
-</html>''',
-
-    'basiclabeled': '''<!DOCTYPE html>
-
-<html>
-<head>
-    <title>
-    Page Title
-    </title>
-</head>
-<body>
-    <label>
-        This is a label
-    </label>
-</body>
-</html>''',
-
-    'basicscripted': '''<!DOCTYPE html>
-
-<html>
-<head>
-    <title>
-    Page Title
-    </title>
-</head>
-<body>
-    <label>
-        This is a label
-    </label>
-</body>
-</html>'''
-}
+cssbase = '''body {
+    background-color: white;
+}'''
 
 
-choices = list(htmlbases.keys())
+
+templates = removeitems(list(vars(htmltemplates).keys()), ('__module__', 'gettemplate', 'no_template_found', '__dict__', '__weakref__', '__doc__'))
 #choices.extend(('--types', '--bases', '--templates'))
 
 
 parser = argparse.ArgumentParser()
 
 parser.add_argument('nameorpath')
-parser.add_argument('type', choices=choices)
+parser.add_argument('type', choices=templates)
+#parser.add_argument('usescss', choices=('y', 'n'))
 
 args = parser.parse_args()
 
-inp = str(args.nameorpath).replace('\\', '/').split('/')
+fname = str(args.nameorpath).replace('\\', '/').split('/')
 
-if inp in ('--types', '--bases', '--templates'):
+if fname in ('--types', '--bases', '--templates'):
     print('the available html bases/templates are:')
-    for base in htmlbases.keys(): print(base)
+    for base in templates: print(base)
 
 btype = str(args.type)
+
+#css = str(args.usescss) == 'y'
 
 
 verifying = True
 while verifying:
-    if '.' in inp: inp.remove('.')
-    elif './' in inp: inp.remove('./')
+    if '.' in fname: fname.remove('.')
+    elif './' in fname: fname.remove('./')
     else: verifying = False
 
 
-filename = inp.pop(-1).removesuffix('.html')
+filename = fname.pop(-1).removesuffix('.html')
 
-path = inp; del inp
+path = fname; del fname
 
 
 prevpath = ''
@@ -117,12 +85,15 @@ if Path(fullpath).exists():
         if not CANOVERWRITE and not CANAPPEND: print(f"error: {fullpath} already exists")
         raise SystemExit()
 
+css = '_css' in btype
 
 with open (fullpath, writingmode) as htmlfile:
     towrite = ''
-    if btype in (None, ''): towrite = htmlbases['basic']
+    if btype in (None, ''): towrite = htmltemplates.gettemplate('basic')
     else:
-        if btype in htmlbases.keys(): towrite = htmlbases[btype]
+        if btype in templates:
+            if css: towrite = str(htmltemplates.gettemplate(btype)).replace('[CSS_PATH]', filename)
+            else: towrite = htmltemplates.gettemplate(btype)
         else: print('that isn\' an available html base/template!')
     if writingmode == 'wt': htmlfile.write(towrite)
     elif writingmode == 'at': htmlfile.write('\n\n\n\n\n' + towrite)
@@ -130,3 +101,10 @@ with open (fullpath, writingmode) as htmlfile:
 if writingmode == 'wt': print('file overwritten!')
 elif writingmode == 'at': print('file appended to!')
 else: print('new file created!')
+
+
+if css:
+    with open('./css/' + filename + '.css', writingmode) as cssfile:
+        if writingmode == 'wt': cssfile.write(cssbase)
+        elif writingmode == 'at': cssfile.write('\n\n\n\n\n' + cssbase)
+        else: cssfile.write(cssbase)
