@@ -1,0 +1,91 @@
+#jules-toggle {
+    position: absolute;
+    top: 78px;
+    left: 132px;
+}
+
+#jules-toggle:hover {
+    content: url("/assets/peat/Jules-full\(idle\).gif");
+}
+
+#jules-toggle:active {
+    content: url("/assets/peat/Jules-full\(petting\).gif");
+    top: 18px;
+    left: 104px;
+}
+
+.main #julessays1 {
+    position: absolute;
+    text-align: center;
+    top: 110px;
+    left: 100px;
+    width: 100px;
+    color: #396d52;
+}
+
+.main #julessays1:hover {
+    position: absolute;
+    text-align: center;
+    top: 110px;
+    left: 100px;
+    width: 100px;
+    color: #6effcc;
+}
+
+
+
+/*.main {
+    position: absolute;
+    text-align: center;
+    top: 110px;
+    left: 0px;
+}*/
+
+/*#footer {
+    color: #7d929e;
+    background-color: #2e3234;
+    font-size: 0.9em;
+    line-height: 0.8em;
+    padding-top: 1em;
+    position: absolute;
+    z-index: 1;
+    box-shadow: 0px 1000px 0px 500px #2e3234;
+}*/
+
+
+
+
+@keyframes HorsedogOmegaRising {
+    from {
+        top: 550px;
+    }
+
+    to {
+        top: 260px;
+    }
+}
+
+@keyframes HorsedogOmegaShake {
+    from {
+        left: 300px;
+    }
+
+    50% {
+        left: 400px;
+    }
+
+    to {
+        left: 300px;
+    }
+}
+
+
+#horsedogomega {
+    top: 260px;
+    left: 350px;
+    position: absolute;
+    animation: HorsedogOmegaRising 10s 1;
+    /*animation: HorsedogOmegaShake 5s 100;*/
+    animation-timing-function: linear;
+
+}

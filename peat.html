@@ -42,6 +42,8 @@
         function peatinit() {
             setCookie('peatscookie', 'meowmode=0', 10000000)
             setCookie('elliotscookie', 'dominomode=1', 10000000)
+            testcookie = getCookie('testcookie')
+            if (testcookie !== null) document.getElementById('testimg').hidden = true
         }
 
 
@@ -52,22 +54,65 @@
             // `DOMContentLoaded` has already fired
             peatinit();
         }
+
+        /*console.log(document.getElementById('testimg')).onclick(self, ev => {
+            setCookie('testcookie', 'hideit', 100)
+            location.reload();
+        })*/
+
     </script>
 </head>
 
 <body>
 
-    <div class="peat peat-default peat-static-top" role="navigation">
+    <!--<div class="peat peat-default peat-static-top" role="navigation">
         <div class="container">
             <div class="peat-header">
                 <button type="button" class="peat-toggle" data-toggle="collapse" data-target=".peat-collapse"></button>
             </div>
         </div>
-    </div>
+    </div>-->
+
+
+    <!--<div class="jules jules-default jules-static-top" role="navigation">
+        <div class="container">
+            <div class="jules-header">
+                <button type="button" class="jules-toggle" data-toggle="collapse"
+                    data-target=".jules-collapse"></button>
+            </div>
+        </div>
+        </div>-->
+
+
+    <!---<div class="elliot elliot-default elliot-static-top" role="navigation">
+        <div class="container">
+            <div class="elliot-header">
+                <button type="button" class="elliot-toggle" data-toggle="collapse"
+                    data-target=".elliot-collapse"></button>
+            </div>
+        </div>
+    </div>-->
+
+    <img id="peat-toggle" src="assets/peat/Peat-full(64x72).png">
+
+    <img id="jules-toggle" src="assets/peat/Jules-full.png">
+
+    <!--<img id="elliot-toggle" src="assets/peat/Elliot-full.png">-->
+
+    <!--<img id="testimg" src="assets/cucui-ganon.gif">-->
+
+
 
     <div class="main">
         <p id="peatsays1">meow</p>
+        <p id="julessays1">mew</p>
     </div>
+
+    <p id="horsedogsay"><b id="horsedogsaybolder">neighroof</b></p>
+
+    <a href="horsedogproxy.html">
+        <img id="horsedog" src="assets/peat/Horsedog-flipped.gif" width="100" height="100">
+    </a>
 
     <div id="footer"></div>
 </body>

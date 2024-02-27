@@ -2,8 +2,9 @@ body {
     background-color: #33337c;
 }
 
-.peat-brand,
-.peat-toggle,
+
+
+/*.peat-toggle,
 .peat-default .peat-toggle:focus,
 .sprite {
     background-image: url("/assets/peat/Peat-full\(64x72\).png");
@@ -15,12 +16,6 @@ body {
     color: #ffffff;
     background-color: #7d929e;
     border: 0;
-}
-
-.peat-default .peat-nav>.active,
-.peat-default .peat-nav>li:hover {
-    border-bottom: 4px solid #ffffff;
-    padding-bottom: 0px;
 }
 
 .peat-toggle,
@@ -53,15 +48,24 @@ body {
     height: 100px;
     background-color: transparent;
     background-position: 0px 0px;
+}*/
+
+
+#peat-toggle {
+    position: absolute;
+    top: 50px;
+    left: 16px;
 }
 
+#peat-toggle:hover {
+    content: url("/assets/peat/Peat-full\(idle-84x72\).gif");
+}
 
-/*.main {
-    position: absolute;
-    text-align: center;
-    top: 110px;
-    left: 0px;
-}*/
+#peat-toggle:active {
+    content: url("/assets/peat/Peat-full\(petting\).gif");
+    top: 22px;
+    left: 8px;
+}
 
 .main #peatsays1 {
     position: absolute;
@@ -81,6 +85,98 @@ body {
     color: #aae0ff;
 }
 
+
+
+/*.jules-toggle,
+.jules-default .jules-toggle:focus,
+.sprite {
+    background-image: url("/assets/peat/Jules-full.png");
+    background-color: transparent;
+    background-repeat: no-repeat;
+}
+
+.jules-default {
+    color: #ffffff;
+    background-color: #7d929e;
+    border: 0;
+}
+
+.jules-toggle,
+.jules-default .jules-toggle:focus {
+    position: absolute;
+    float: right;
+    margin-right: 15px;
+    padding: 10px 10px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    background-color: transparent;
+    background-position: 125px 56px;
+    border: 0;
+    border-radius: 0px;
+    width: 166px;
+    height: 120px;
+}
+
+.jules-default .jules-toggle:hover {
+    background-image: url("/assets/peat/Jules-full\(idle\).gif");
+    width: 173px;
+    height: 100px;
+    background-color: transparent;
+    background-position: 125px 56px;
+}
+
+.jules-default .jules-toggle:active {
+    background-image: url("/assets/peat/Jules-full\(petting\).gif");
+    width: 180px;
+    height: 144px;
+    background-color: transparent;
+    background-position: 97px -4px;
+}*/
+
+
+#jules-toggle {
+    position: absolute;
+    top: 78px;
+    left: 132px;
+}
+
+#jules-toggle:hover {
+    content: url("/assets/peat/Jules-full\(idle\).gif");
+}
+
+#jules-toggle:active {
+    content: url("/assets/peat/Jules-full\(petting\).gif");
+    top: 18px;
+    left: 104px;
+}
+
+.main #julessays1 {
+    position: absolute;
+    text-align: center;
+    top: 110px;
+    left: 100px;
+    width: 100px;
+    color: #396d52;
+}
+
+.main #julessays1:hover {
+    position: absolute;
+    text-align: center;
+    top: 110px;
+    left: 100px;
+    width: 100px;
+    color: #6effcc;
+}
+
+
+
+/*.main {
+    position: absolute;
+    text-align: center;
+    top: 110px;
+    left: 0px;
+}*/
+
 /*#footer {
     color: #7d929e;
     background-color: #2e3234;
@@ -90,4 +186,86 @@ body {
     position: absolute;
     z-index: 1;
     box-shadow: 0px 1000px 0px 500px #2e3234;
+}*/
+
+
+
+
+@keyframes horsedogmove {
+    from {
+        left: 0px;
+    }
+
+    50% {
+        left: 1150px;
+    }
+
+    99.7% {
+        content: url("/assets/peat/Horsedog.gif");
+    }
+
+    /*50% {
+        animation-timing-function: step-end;
+        transform: scale(-1, 1);
+    }*/
+
+    to {
+        left: 0px;
+        /*transform: scale(-1, 1);*/
+        content: url("/assets/peat/Horsedog-flipped.gif");
+    }
+}
+
+@keyframes horsedogsaymove {
+    from {
+        left: 22px;
+    }
+
+    50% {
+        left: 1175px;
+    }
+
+    to {
+        left: 22px;
+    }
+}
+
+
+#horsedog {
+    top: 1000px;
+    position: absolute;
+    animation: horsedogmove 27s infinite;
+    animation-timing-function: linear;
+
+}
+
+/*#horsedog:hover,
+#horsedogsay:hover {
+    animation: none;
+}*/
+
+/*Do You Think God Stays in Heaven Because He too Lives in Fear of What He's Created?*/
+#horsedogsay {
+    top: 960px;
+    position: absolute;
+    animation: horsedogsaymove 27s infinite;
+    animation-timing-function: linear;
+
+}
+
+/*#horsedogsaybolder::after {
+    content: 'neighroof';
+}*/
+
+/*#horsedogsaybolder:hover::after {
+    color: #ff0000;
+    content: "Do you think God stays in heaven because he too lives in fear of what He's created?";
+}*/
+
+/*#testimg {
+    visibility: visible;
+}
+
+#testimg:hover {
+    visibility: hidden;
 }*/
