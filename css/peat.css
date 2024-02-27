@@ -1,0 +1,93 @@
+body {
+    background-color: #33337c;
+}
+
+.peat-brand,
+.peat-toggle,
+.peat-default .peat-toggle:focus,
+.sprite {
+    background-image: url("/assets/peat/Peat-full\(64x72\).png");
+    background-color: transparent;
+    background-repeat: no-repeat;
+}
+
+.peat-default {
+    color: #ffffff;
+    background-color: #7d929e;
+    border: 0;
+}
+
+.peat-default .peat-nav>.active,
+.peat-default .peat-nav>li:hover {
+    border-bottom: 4px solid #ffffff;
+    padding-bottom: 0px;
+}
+
+.peat-toggle,
+.peat-default .peat-toggle:focus {
+    position: absolute;
+    float: right;
+    margin-right: 15px;
+    padding: 10px 10px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    background-color: transparent;
+    background-position: 8px 28px;
+    border: 0;
+    border-radius: 0px;
+    width: 72px;
+    height: 100px;
+}
+
+.peat-default .peat-toggle:hover {
+    background-image: url("/assets/peat/Peat-full\(idle-84x72\).gif");
+    width: 92px;
+    height: 100px;
+    background-color: transparent;
+    background-position: 8px 28px;
+}
+
+.peat-default .peat-toggle:active {
+    background-image: url("/assets/peat/Peat-full\(petting\).gif");
+    width: 72px;
+    height: 100px;
+    background-color: transparent;
+    background-position: 0px 0px;
+}
+
+
+/*.main {
+    position: absolute;
+    text-align: center;
+    top: 110px;
+    left: 0px;
+}*/
+
+.main #peatsays1 {
+    position: absolute;
+    text-align: center;
+    top: 110px;
+    left: 0px;
+    width: 100px;
+    color: #7d929e;
+}
+
+.main #peatsays1:hover {
+    position: absolute;
+    text-align: center;
+    top: 110px;
+    left: 0px;
+    width: 100px;
+    color: #aae0ff;
+}
+
+/*#footer {
+    color: #7d929e;
+    background-color: #2e3234;
+    font-size: 0.9em;
+    line-height: 0.8em;
+    padding-top: 1em;
+    position: absolute;
+    z-index: 1;
+    box-shadow: 0px 1000px 0px 500px #2e3234;
+}*/

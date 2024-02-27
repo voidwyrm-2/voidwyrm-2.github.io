@@ -9,7 +9,7 @@
 
     <link rel="stylesheet" href="/css/sgglogin.css">
     <title>
-        Song Guessing Game
+        Song Guessing Game Login
     </title>
     <script>
         function setCookie(name, value, days) {
@@ -43,8 +43,10 @@
         }
 
         function usercheck() {
-            const usercookie = getCookie("sggcookie")
-            if (usercookie != null) tosggmain();
+            const usernamecookie = getCookie("sggnamecookie")
+            const userscorecookie = getCookie("sggscorecookie")
+            //const usercookie = getCookie("sggcookie")
+            if (usernamecookie != null && userscorecookie != null) tosggmain();
         }
 
         function checkusername() {

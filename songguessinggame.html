@@ -53,10 +53,23 @@
             '"Picked a fight with the gods, I\'m the giant slayer"',
             '"I need a doctor, oh"',
             '"It\'s funny how the world keeps turning"',
-            '"Now they see my blood on their sneakers"'
+            '"Now they see my blood on their sneakers"',
+            '"Ooh-ooh, I\'m a rebel just for kicks now"',
+            '"Hey, I\'m gonna get you too"',
+            '"The devil made me do it, but I also kinda wanted to"',
+            '"I can\'t write one song that\'s not about you"',
+            '"And I can tell just what you want"',
+            '"All my favorite colors"',
+            '"I need to know now, know now"',
+            '"When I was a young boy"',
+            '"\'Cause you were out of my league"',
+            '"\'Cause in the playground nobody knows your name, your name"',
+            '"I\'ll show you what it feels like"',
+            '"Baby, break my heart in the middle, heart in the middle"',
+            ['"My friends are in the bathroom,', '"Getting higher than the Empire State"']
         ]
         const lyrics_ans = [
-            'IC-0n\'s Theme',
+            ['IC-0n\'s Theme', 'IC-0n\'s Theme A'],
             'The Mind Electric',
             'Immortals',
             'Warrior',
@@ -68,16 +81,49 @@
             'Gladiator',
             '0Doctor',
             'Starlight',
-            'Cabinet Man'
+            'Cabinet Man',
+            'Feel It Still',
+            'Another One Bites The Dust',
+            ['2Econd 2Ight 2Eer', '2Econd 2Ight 2Eer(That Was Fun, Goodbye)', 'That Was Fun, Goodbye'],
+            'If I can\'t Have You',
+            'What You Know',
+            'Colors',
+            'Love Me Again',
+            'Welcome to the Black Parade',
+            'Out of My League',
+            'The Playground',
+            'Outside',
+            'One More Time',
+            'We Are Young'
         ]
 
         function randomlyric() { return Math.floor(Math.random() * lyrics.length); }
 
         function newlyric() {
             const lyrind = randomlyric();
-            const sgglyr = document.getElementById("songguessinggame").querySelector('b');
-            sgglyr.textContent = lyrics[lyrind];
-            clyric = lyrind;
+            //console.log(lyrics[lyrind])
+            if (typeof lyrics[lyrind] == 'object') {
+                document.getElementById("sgglyrics").querySelector('b').remove();
+                for (lr in lyrics[lyrind]) {
+                    lyr = lyrics[lyrind][lr]
+
+
+
+                    const node = document.createElement("b");
+                    const textnode = document.createTextNode(lyr);
+                    node.appendChild(textnode);
+                    document.getElementById("sgglyrics").appendChild(node);
+                    const ln = document.createElement("br");
+                    document.getElementById("sgglyrics").appendChild(ln);
+
+                }
+                clyric = lyrind;
+            }
+            else {
+                const sgglyr = document.getElementById("sgglyrics").querySelector('b');
+                sgglyr.textContent = lyrics[lyrind];
+                clyric = lyrind;
+            }
         }
 
         function clyriccheck() {
@@ -182,15 +228,17 @@
         <br>
         Guess which song the given lyric is from!
     </h1>
-    <h2>
-        (The song name is fully capitalized, and anything in paratheses that isn't part of the title is ignored, e.g.
+    <h3>
+        (The song name should be capitalized and styled exactly like the original, and anything in paratheses that isn't
+        part of the title is ignored(such as the featured artists), e.g.
         for "Warrior (Bonus Track)" you would give "Warrior")
-    </h2>
-    <p id="songguessinggame">
-        <b>
+    </h3>
+    <div id="sgglyrics">
+        <b id="bmain">
             [PLACE_HOLDER_LYRIC]
         </b>
-    </p>
+    </div>
+    <br>
     <form>
         <label for="answer">Enter your answer: </label>
         <input type="text" id="answer">
