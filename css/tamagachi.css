@@ -1,0 +1,57 @@
+body {
+    background-color: rgb(0, 0, 0);
+}
+
+
+#slimetama {
+    position: absolute;
+    top: 300px;
+    left: 520px;
+}
+
+
+@keyframes rgbgaming {
+    from {
+        color: #ff0000;
+    }
+
+    14% {
+        color: #ffff00;
+    }
+
+    28% {
+        color: #00ff00;
+    }
+
+    42% {
+        color: #00ffff;
+    }
+
+    56% {
+        color: #0000ff;
+    }
+
+    70% {
+        color: #ff00ff;
+    }
+
+    to {
+        color: #ff0000;
+    }
+}
+
+#failheader {
+    position: absolute;
+    left: 225px;
+    top: 200px;
+    animation: rgbgaming 4s infinite;
+    animation-timing-function: linear;
+}
+
+#rrrheader {
+    position: absolute;
+    left: 425px;
+    top: 250px;
+    animation: rgbgaming 10s infinite;
+    animation-timing-function: linear;
+}

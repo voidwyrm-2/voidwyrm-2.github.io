@@ -170,6 +170,47 @@ body {
 
 
 
+#herbert-toggle {
+    position: absolute;
+    top: 62px;
+    left: 717px;
+}
+
+#herbert-toggle:hover {
+    content: url("/assets/peat/Herbert\(blush\).png");
+}
+
+#herbert-toggle:active {
+    content: url("/assets/TextureNotFound.png");
+    /*content: url("/assets/peat/Herbert\(kflip\).gif");
+    width: 120px;
+    height: 72px;
+    left: 689px;*/
+    left: 717px;
+}
+
+.main #herbertsays1 {
+    position: absolute;
+    text-align: center;
+    top: 110px;
+    left: 700px;
+    width: 100px;
+    color: #d7d96c;
+}
+
+.main #herbertsays1:hover {
+    position: absolute;
+    text-align: center;
+    top: 110px;
+    left: 700px;
+    width: 100px;
+    /*color: #df00b2;*/
+    color: #feffdd;
+}
+
+
+
+
 /*.main {
     position: absolute;
     text-align: center;

@@ -42,6 +42,7 @@
         function peatinit() {
             setCookie('peatscookie', 'meowmode=0', 10000000)
             setCookie('elliotscookie', 'dominomode=1', 10000000)
+            setCookie('herbertscookie', 'froggymode=1', 10000000)
             testcookie = getCookie('testcookie')
             if (testcookie !== null) document.getElementById('testimg').hidden = true
         }
@@ -99,6 +100,8 @@
 
     <!--<img id="elliot-toggle" src="assets/peat/Elliot-full.png">-->
 
+    <img id="herbert-toggle" src="assets/peat/Herbert.png" width="64" height="64">
+
     <!--<img id="testimg" src="assets/cucui-ganon.gif">-->
 
 
@@ -106,6 +109,7 @@
     <div class="main">
         <p id="peatsays1">meow</p>
         <p id="julessays1">mew</p>
+        <p id="herbertsays1">ribbit</p>
     </div>
 
     <p id="horsedogsay"><b id="horsedogsaybolder">neighroof</b></p>

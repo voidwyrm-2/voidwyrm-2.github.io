@@ -1,0 +1,62 @@
+body {
+    background-color: white;
+}
+
+
+@keyframes majoraleft {
+    from {
+        rotate: 0deg;
+        left: 1400px;
+        /*content: url(/assets/Majora2.png);*/
+        opacity: 100;
+    }
+
+    to {
+        rotate: 360deg;
+        left: -400px;
+        /*content: url(/assets/Majora.gif);*/
+    }
+
+    100% {
+        visibility: hidden;
+    }
+}
+
+
+#majora1 {
+    top: 260px;
+    left: 1400px;
+    position: absolute;
+    animation: majoraleft 5s infinite;
+    animation-timing-function: linear;
+    content: url(/assets/Majora.gif);
+    visibility: hidden;
+}
+
+
+
+@keyframes inout {
+    0% {
+        rotate: 0deg;
+        left: 1300px;
+        /*content: url(/assets/Majora2.png);*/
+        opacity: 100;
+    }
+
+    to {
+        rotate: 360deg;
+        left: 40%;
+        /*content: url(/assets/Majora.gif);*/
+    }
+}
+
+
+#majora2 {
+    top: 260px;
+    left: 1400px;
+    position: absolute;
+    animation: inout 5s;
+    animation-timing-function: ease-out;
+    content: url(/assets/Majora.gif);
+    visibility: visible;
+}

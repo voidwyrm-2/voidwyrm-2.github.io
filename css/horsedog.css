@@ -1,63 +1,406 @@
-#jules-toggle {
-    position: absolute;
-    top: 78px;
-    left: 132px;
-}
-
-#jules-toggle:hover {
-    content: url("/assets/peat/Jules-full\(idle\).gif");
-}
-
-#jules-toggle:active {
-    content: url("/assets/peat/Jules-full\(petting\).gif");
-    top: 18px;
-    left: 104px;
-}
-
-.main #julessays1 {
-    position: absolute;
-    text-align: center;
-    top: 110px;
-    left: 100px;
-    width: 100px;
-    color: #396d52;
-}
-
-.main #julessays1:hover {
-    position: absolute;
-    text-align: center;
-    top: 110px;
-    left: 100px;
-    width: 100px;
-    color: #6effcc;
-}
-
-
-
-/*.main {
-    position: absolute;
-    text-align: center;
-    top: 110px;
-    left: 0px;
-}*/
-
-/*#footer {
-    color: #7d929e;
-    background-color: #2e3234;
-    font-size: 0.9em;
-    line-height: 0.8em;
-    padding-top: 1em;
-    position: absolute;
-    z-index: 1;
-    box-shadow: 0px 1000px 0px 500px #2e3234;
-}*/
-
-
-
-
 @keyframes HorsedogOmegaRising {
     from {
         top: 550px;
+    }
+
+    0% {
+        left: 348px;
+    }
+
+    1% {
+        left: 350px;
+    }
+
+    2% {
+        left: 348px;
+    }
+
+    3% {
+        left: 350px;
+    }
+
+    4% {
+        left: 348px;
+    }
+
+    5% {
+        left: 350px;
+    }
+
+    6% {
+        left: 348px;
+    }
+
+    7% {
+        left: 350px;
+    }
+
+    8% {
+        left: 348px;
+    }
+
+    9% {
+        left: 350px;
+    }
+
+    10% {
+        left: 348px;
+    }
+
+    11% {
+        left: 350px;
+    }
+
+    12% {
+        left: 348px;
+    }
+
+    13% {
+        left: 350px;
+    }
+
+    14% {
+        left: 348px;
+    }
+
+    15% {
+        left: 350px;
+    }
+
+    16% {
+        left: 348px;
+    }
+
+    17% {
+        left: 350px;
+    }
+
+    18% {
+        left: 348px;
+    }
+
+    19% {
+        left: 350px;
+    }
+
+    20% {
+        left: 348px;
+    }
+
+    21% {
+        left: 350px;
+    }
+
+    22% {
+        left: 348px;
+    }
+
+    23% {
+        left: 350px;
+    }
+
+    24% {
+        left: 348px;
+    }
+
+    25% {
+        left: 350px;
+    }
+
+    26% {
+        left: 348px;
+    }
+
+    27% {
+        left: 350px;
+    }
+
+    28% {
+        left: 348px;
+    }
+
+    29% {
+        left: 350px;
+    }
+
+    30% {
+        left: 348px;
+    }
+
+    31% {
+        left: 350px;
+    }
+
+    32% {
+        left: 348px;
+    }
+
+    33% {
+        left: 350px;
+    }
+
+    34% {
+        left: 348px;
+    }
+
+    35% {
+        left: 350px;
+    }
+
+    36% {
+        left: 348px;
+    }
+
+    37% {
+        left: 350px;
+    }
+
+    38% {
+        left: 348px;
+    }
+
+    39% {
+        left: 350px;
+    }
+
+    40% {
+        left: 348px;
+    }
+
+    41% {
+        left: 350px;
+    }
+
+    42% {
+        left: 348px;
+    }
+
+    43% {
+        left: 350px;
+    }
+
+    44% {
+        left: 348px;
+    }
+
+    45% {
+        left: 350px;
+    }
+
+    46% {
+        left: 348px;
+    }
+
+    47% {
+        left: 350px;
+    }
+
+    48% {
+        left: 348px;
+    }
+
+    49% {
+        left: 350px;
+    }
+
+    50% {
+        left: 348px;
+    }
+
+    51% {
+        left: 350px;
+    }
+
+    52% {
+        left: 348px;
+    }
+
+    53% {
+        left: 350px;
+    }
+
+    54% {
+        left: 348px;
+    }
+
+    55% {
+        left: 350px;
+    }
+
+    56% {
+        left: 348px;
+    }
+
+    57% {
+        left: 350px;
+    }
+
+    58% {
+        left: 348px;
+    }
+
+    59% {
+        left: 350px;
+    }
+
+    60% {
+        left: 348px;
+    }
+
+    61% {
+        left: 350px;
+    }
+
+    62% {
+        left: 348px;
+    }
+
+    63% {
+        left: 350px;
+    }
+
+    64% {
+        left: 348px;
+    }
+
+    65% {
+        left: 350px;
+    }
+
+    66% {
+        left: 348px;
+    }
+
+    67% {
+        left: 350px;
+    }
+
+    68% {
+        left: 348px;
+    }
+
+    69% {
+        left: 350px;
+    }
+
+    70% {
+        left: 348px;
+    }
+
+    71% {
+        left: 350px;
+    }
+
+    72% {
+        left: 348px;
+    }
+
+    73% {
+        left: 350px;
+    }
+
+    74% {
+        left: 348px;
+    }
+
+    75% {
+        left: 350px;
+    }
+
+    76% {
+        left: 348px;
+    }
+
+    77% {
+        left: 350px;
+    }
+
+    78% {
+        left: 348px;
+    }
+
+    79% {
+        left: 350px;
+    }
+
+    80% {
+        left: 348px;
+    }
+
+    81% {
+        left: 350px;
+    }
+
+    82% {
+        left: 348px;
+    }
+
+    83% {
+        left: 350px;
+    }
+
+    84% {
+        left: 348px;
+    }
+
+    85% {
+        left: 350px;
+    }
+
+    86% {
+        left: 348px;
+    }
+
+    87% {
+        left: 350px;
+    }
+
+    88% {
+        left: 348px;
+    }
+
+    89% {
+        left: 350px;
+    }
+
+    90% {
+        left: 348px;
+    }
+
+    91% {
+        left: 350px;
+    }
+
+    92% {
+        left: 348px;
+    }
+
+    93% {
+        left: 350px;
+    }
+
+    94% {
+        left: 348px;
+    }
+
+    95% {
+        left: 350px;
+    }
+
+    96% {
+        left: 348px;
+    }
+
+    97% {
+        left: 350px;
+    }
+
+    98% {
+        left: 348px;
+    }
+
+    99% {
+        left: 350px;
     }
 
     to {

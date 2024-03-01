@@ -92,8 +92,8 @@ with open (fullpath, writingmode) as htmlfile:
     if btype in (None, ''): towrite = htmltemplates.gettemplate('basic')
     else:
         if btype in templates:
-            if css: towrite = str(htmltemplates.gettemplate(btype)).replace('[CSS_PATH]', fullpath.replace('/', '').removesuffix('.html'))
-            else: towrite = htmltemplates.gettemplate(btype)
+            if css: towrite = str(htmltemplates.gettemplate(btype)).replace('[CSS_PATH]', fullpath.split('/')[-1].removesuffix('.html'))
+            else: towrite = str(htmltemplates.gettemplate(btype))
         else: print('that isn\' an available html base/template!')
     if writingmode == 'wt': htmlfile.write(towrite)
     elif writingmode == 'at': htmlfile.write('\n\n\n\n\n' + towrite)

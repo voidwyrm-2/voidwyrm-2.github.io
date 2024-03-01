@@ -41,7 +41,7 @@ class htmltemplates:
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/[[[PLACEHOLDER]]].css">
+    <link rel="stylesheet" href="/css/[CSS_PATH].css">
     <title>
         Page Title
     </title>
@@ -114,5 +114,4 @@ class htmltemplates:
 
 </html>'''
 
-
-    
+    basic_scripted_css = basic_css_scripted

@@ -1,0 +1,300 @@
+0% {
+    left: 330px;
+}
+1% {
+    left: 350px;
+}
+2% {
+    left: 330px;
+}
+3% {
+    left: 350px;
+}
+4% {
+    left: 330px;
+}
+5% {
+    left: 350px;
+}
+6% {
+    left: 330px;
+}
+7% {
+    left: 350px;
+}
+8% {
+    left: 330px;
+}
+9% {
+    left: 350px;
+}
+10% {
+    left: 330px;
+}
+11% {
+    left: 350px;
+}
+12% {
+    left: 330px;
+}
+13% {
+    left: 350px;
+}
+14% {
+    left: 330px;
+}
+15% {
+    left: 350px;
+}
+16% {
+    left: 330px;
+}
+17% {
+    left: 350px;
+}
+18% {
+    left: 330px;
+}
+19% {
+    left: 350px;
+}
+20% {
+    left: 330px;
+}
+21% {
+    left: 350px;
+}
+22% {
+    left: 330px;
+}
+23% {
+    left: 350px;
+}
+24% {
+    left: 330px;
+}
+25% {
+    left: 350px;
+}
+26% {
+    left: 330px;
+}
+27% {
+    left: 350px;
+}
+28% {
+    left: 330px;
+}
+29% {
+    left: 350px;
+}
+30% {
+    left: 330px;
+}
+31% {
+    left: 350px;
+}
+32% {
+    left: 330px;
+}
+33% {
+    left: 350px;
+}
+34% {
+    left: 330px;
+}
+35% {
+    left: 350px;
+}
+36% {
+    left: 330px;
+}
+37% {
+    left: 350px;
+}
+38% {
+    left: 330px;
+}
+39% {
+    left: 350px;
+}
+40% {
+    left: 330px;
+}
+41% {
+    left: 350px;
+}
+42% {
+    left: 330px;
+}
+43% {
+    left: 350px;
+}
+44% {
+    left: 330px;
+}
+45% {
+    left: 350px;
+}
+46% {
+    left: 330px;
+}
+47% {
+    left: 350px;
+}
+48% {
+    left: 330px;
+}
+49% {
+    left: 350px;
+}
+50% {
+    left: 330px;
+}
+51% {
+    left: 350px;
+}
+52% {
+    left: 330px;
+}
+53% {
+    left: 350px;
+}
+54% {
+    left: 330px;
+}
+55% {
+    left: 350px;
+}
+56% {
+    left: 330px;
+}
+57% {
+    left: 350px;
+}
+58% {
+    left: 330px;
+}
+59% {
+    left: 350px;
+}
+60% {
+    left: 330px;
+}
+61% {
+    left: 350px;
+}
+62% {
+    left: 330px;
+}
+63% {
+    left: 350px;
+}
+64% {
+    left: 330px;
+}
+65% {
+    left: 350px;
+}
+66% {
+    left: 330px;
+}
+67% {
+    left: 350px;
+}
+68% {
+    left: 330px;
+}
+69% {
+    left: 350px;
+}
+70% {
+    left: 330px;
+}
+71% {
+    left: 350px;
+}
+72% {
+    left: 330px;
+}
+73% {
+    left: 350px;
+}
+74% {
+    left: 330px;
+}
+75% {
+    left: 350px;
+}
+76% {
+    left: 330px;
+}
+77% {
+    left: 350px;
+}
+78% {
+    left: 330px;
+}
+79% {
+    left: 350px;
+}
+80% {
+    left: 330px;
+}
+81% {
+    left: 350px;
+}
+82% {
+    left: 330px;
+}
+83% {
+    left: 350px;
+}
+84% {
+    left: 330px;
+}
+85% {
+    left: 350px;
+}
+86% {
+    left: 330px;
+}
+87% {
+    left: 350px;
+}
+88% {
+    left: 330px;
+}
+89% {
+    left: 350px;
+}
+90% {
+    left: 330px;
+}
+91% {
+    left: 350px;
+}
+92% {
+    left: 330px;
+}
+93% {
+    left: 350px;
+}
+94% {
+    left: 330px;
+}
+95% {
+    left: 350px;
+}
+96% {
+    left: 330px;
+}
+97% {
+    left: 350px;
+}
+98% {
+    left: 330px;
+}
+99% {
+    left: 350px;
+}
