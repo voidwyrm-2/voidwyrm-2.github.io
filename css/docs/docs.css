@@ -1,0 +1,92 @@
+body {
+    background-color: black;
+}
+
+.background {
+    content: "";
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: -1;
+
+    display: block;
+    background-image: url('/assets/docs_repeating.png');
+    background-repeat: repeat;
+    width: 100%;
+    height: 100%;
+
+    /*
+    -webkit-filter: blur(10px);
+    -moz-filter: blur(10px);
+    -o-filter: blur(10px);
+    -ms-filter: blur(10px);
+    */
+    filter: blur(10px);
+}
+
+.title-text {
+    position: absolute;
+    left: 48%;
+    color: rgba(100, 100, 255, 1);
+}
+
+.title-note {
+    position: absolute;
+    font-size: 73%;
+    left: 44%;
+    top: 8%;
+    color: rgba(155, 155, 155, 1);
+}
+
+/*
+below was made using https://dafluffypotato.com/skills as a base
+*/
+
+.docs-section {
+    top: 40px;
+    padding: 2em;
+    position: relative;
+    margin: auto;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.8);
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
+}
+
+.doc-title {
+    color: rgb(255, 255, 255);
+    font-size: 150%;
+    text-align: center;
+}
+
+.docs-title-link {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 1);
+}
+
+.doc-desc {
+    text-align: left;
+}
+
+.docs-text-link {
+    text-decoration: none;
+    color: rgba(215, 72, 182, 0.8);
+}
+
+.docs-col {
+    width: 20em;
+    display: inline-block;
+    vertical-align: top;
+    text-align: left;
+    position: relative;
+    margin: 0 1em 0 1em;
+}
+
+.docs-block {
+    margin: 1em 0 1em 0;
+    background-color: rgba(20, 0, 20, 0.9);
+    border-style: solid;
+    border-width: 0.07em;
+    border-color: rgb(155, 155, 255);
+    border-radius: 0.3em;
+    padding: 0.5em;
+}

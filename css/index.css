@@ -1,0 +1,84 @@
+body {
+    background-color: rgb(40, 40, 80);
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
+}
+
+/* taken from https://dafluffypotato.com */
+body::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* upper area */
+
+.titlename {
+    position: absolute;
+    left: 26%;
+    width: 50%;
+    /* ^ 750px */
+}
+
+.bio {
+    position: absolute;
+    left: 23%;
+    text-align: center;
+    top: 17%;
+    color: rgb(151, 110, 189);
+}
+
+#pasta-substance {
+    color: rgb(208, 66, 92);
+}
+
+#bio-text-2 {
+    margin-top: 2px;
+}
+
+#bio-text-3 {
+    margin-top: 3px;
+}
+
+#bio-text-4 {
+    margin-top: 4px;
+}
+
+
+/* middle area */
+
+.links-title {
+    position: absolute;
+    top: 330px;
+    left: 41.5%;
+    color: rgb(156, 85, 221);
+}
+
+.links-block {
+    position: relative;
+    margin: 20px;
+    top: 450px;
+    left: 20%;
+    width: 155px;
+    height: 130px;
+    background-color: black;
+    border: 2px;
+    border-radius: 2px;
+    border-color: white;
+    border-width: 2px;
+    border-style: solid;
+}
+
+.links-block-title {
+    margin-top: 8px;
+    text-align: center;
+    color: white;
+}
+
+.links-block-title-link {
+    color: white;
+}
+
+.links-block-desc {
+    margin-top: 10px;
+    text-align: center;
+    color: rgb(200, 200, 200);
+}
