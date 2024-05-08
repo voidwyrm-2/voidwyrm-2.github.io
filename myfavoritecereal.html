@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/css/branflakes.css">
+
+    <title>
+        The Best Language(and cereal!)
+    </title>
+    <script>
+    </script>
+</head>
+
+<body>
+    <h3>
+        <a href="https://en.wikipedia.org/wiki/Brainfuck">Brain****</a>(or as I prefer to call it, Branflakes) is an
+        <a href="https://en.wikipedia.org/wiki/Esoteric_programming_language">esoteric programming language</a> created
+        in 1993 by
+        Urban Müller.
+    </h3>
+    <h4>
+        And I love it
+    </h4>
+    <p class="desciption holder" id="desc_holder">
+        <b>
+            So here's a bunch of Branflakes scripts
+        </b>
+        <br>
+        To run them, put them into any Branflakes compiler or interpreter<br>
+        Or alternatively, if you despise using anything that you didn't make yourself, you could write one in
+        <b><i>literally any language</i></b>(even Branflakes itself...)
+
+    </p>
+    <br>
+    <p class="scripts holder" id="script_holder">
+
+    <p class="scripts" id="script_adding">
+    <p class="scripttitle">Adding</p>
+    <pre>
+    <code class="scriptblock">
++++++ set first byte to 5
+
+> move to second byte
+
++++++++ set second byte to 7
+
+< move back to first byte
+
+adding loop
+[
+    - remove 1 from first byte
+    > move to second byte
+    + add 1 to second byte
+    < move back to first byte
+] this jumps back to the corresponding '[' when the current byte is NOT 0
+  so it will continue until the first byte is 0
+
+>. move to second byte and print it to console
+    </code>
+    </pre>
+    </p>
+
+    <p class="scripts" id="script_basic-adder">
+    <p class="scripttitle">Basic Adder</p>
+    <pre>
+    <code class="scriptblock">
+[
+    adder test/example
+]
+
+, set the first byte to the user's input
+
+. print first byte
+
+> move to second byte
+, set the second byte to the user's input
+
+. print second byte
+
+< move back to first byte
+
+
+add first byte to second byte giving 73 which is an uppercase "i" in ASCII
+[ is the current byte zero? jump to corresponding bracket if so
+    - remove 1 from current byte
+    > move to next byte
+    + add 1 to current byte
+    < move to previous byte
+] is the current byte non zero? jump to corresponding bracket if so
+
+> move to second byte
+
+. print second byte
+    </code>
+    </pre>
+    </p>
+
+    </p>
+
+</body>

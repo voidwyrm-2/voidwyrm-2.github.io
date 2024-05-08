@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/css/bfinterpreter.css">
+
+    <title>
+        BF Interpreter
+    </title>
+    <script>
+
+        // +++++.>+++++++.<[->+<]>.
+
+
+        const bytearraysize = 30000
+
+        function runCode() {
+            console.log('begin code interpreting')
+
+            setOutput('')
+
+            console.log('output console cleared')
+
+            let bytes = []
+            for (let i = 0; i < bytearraysize + 1; i++) { bytes[i] = 0 }
+
+            console.log(`bytearray generated with size of ${bytearraysize}`)
+
+            //console.log(`literal: ${bytes}`)
+
+            let cbyte = 0
+
+            const inputs_raw = document.getElementById('bfinput').value
+
+            let inputs_list = []
+
+            if (inputs_raw != null && inputs_raw != '') {
+                const inputs_split = inputs_raw.replace(' ', '').replace('\t', '').replace('\n', '').split(',')
+                for (i = 0; i < inputs_split.length; i++) {
+                    try {
+                        inpnum = Number(inputs_raw[i])
+                        if (inpnum > 127) {
+                            console.warn(`input "${inputs_raw[i]}" to high`)
+                            setOutput(`ERROR: input "${inputs_raw[i]}" to high`)
+                            return
+                        } else if (inpnum < 0) {
+                            console.warn(`input "${inputs_raw[i]}" to low`)
+                            setOutput(`ERROR: input "${inputs_raw[i]}" to low`)
+                            return
+                        }
+                        inputs_list[i] = inpnum
+                    } catch (error) {
+                        console.warn(`input "${inputs_raw[i]}" invalid, actual error below`)
+                        console.error(error)
+                        setOutput(`ERROR: input "${inputs_raw[i]}" invalid`)
+                        return
+                    }
+                }
+                console.log('inputs loaded')
+            } else {
+                console.log('inputs empty, ignoring')
+            }
+
+            const codeElement = document.getElementById('bfcodeinput')
+
+            if (codeElement == null) {
+                console.error('codeElement is null')
+                setOutput('ERROR: element "codeElement" not found\nThis is an internal error, please contact the person who made this webpage')
+                return
+            }
+
+            const code = codeElement.value
+
+            // PAY NO MIND TO THIS PART
+            if (code == null || code == '') {
+                setOutput('ERROR: code is empty')
+                console.warn('code is empty')
+                return
+            } else if (code == '69') {
+                setOutput('ERROR: you are a piece of crap')
+                console.error('the user can die in a hole')
+                return
+            } else if (code == '42') {
+                setOutput('nice')
+                console.log('the user is cultured')
+                return
+            } else if (code.toLowerCase().includes('fornite') && code.toLowerCase().includes('sex') && code.toLowerCase().includes('gamer') && code.toLowerCase().includes('69')) {
+                setOutput('ERROR: that\'s a terrible reference')
+                console.warn('I would say the user is cultured, but they don\'t deserve it')
+                return
+            } else if (code.toLowerCase() == 'pootis engage' ||
+                code.toLowerCase() == 'mimi turret' ||
+                code.toLowerCase() == 'ken ashcorp' ||
+                code == 'ThePrimeagen' ||
+                code == 'ThePrimeTime' ||
+                code.toLowerCase() == 'dreamberd') {
+                setOutput('a person of culture, I see')
+                console.log('the user is VERY cultured')
+                return
+            }
+
+            //console.log(code)
+
+            console.log('code loaded')
+
+            if (code.includes(',') && inputs.length < 1) setOutput('ERROR: \',\' found but no inputs given'); console.warn('\',\' found but no inputs given'); return
+
+            let jumps = {}
+
+            let jumpcount = 0
+
+            let jumpnest = 0
+
+            let jumpstack = []
+
+            let inputcount = 0
+
+            let inputs = {}
+
+            for (let cn = 0; cn < code.length; cn++) {
+                const c = code.charAt(cn)
+                if (c == '[') {
+                    jumpcount++
+                    jumpnest++
+                    jumpstack.push(cn)
+                } else if (c == ']' && jumpnest > 0) {
+                    jumpcount++
+                    jumpnest--
+                    const begin = jumpstack.pop()
+                    jumps[begin] = cn
+                    jumps[cn] = begin
+                } else if (c == ']' && jumpnest <= 0) {
+                    setOutput(`ERROR: unbalanced ']' at character ${cn + 1}`)
+                    console.warn(`unbalanced ']' at character ${cn + 1}`)
+                    return
+                } else if (c == ',') {
+                    if (inputcount > inputs_list.length - 1) {
+                        setOutput(`ERROR: not enough inputs given`)
+                        console.warn(`not enough inputs given`)
+                    }
+                    inputs[cn] = inputs_list[inputcount]
+                    inputcount++
+                }
+            }
+
+            //console.log(jumps)
+
+            //console.log(jumpcount)
+            //console.log(jumpcount % 2)
+            //console.log(jumpcount % 2 == 0)
+
+            if (jumpcount % 2 != 0) { setOutput('ERROR: unbalanced \'[\''); console.warn('unbalanced \'[\''); return }
+
+            console.log('jumps loaded')
+
+            let output = ''
+            let cn = 0
+            while (cn < code.length) {
+                const c = code.charAt(cn)
+                //console.log(cn)
+                //if (c != '\n') console.log(c)
+                switch (c) {
+                    case '+':
+                        if (bytes[cbyte] == 127) {
+                            bytes[cbyte] = 0
+                        } else {
+                            bytes[cbyte]++
+                        }
+                        cn++
+                        break
+                    case '-':
+                        if (bytes[cbyte] == 0) {
+                            bytes[cbyte] = 127
+                        } else {
+                            bytes[cbyte]--
+                        }
+                        cn++
+                        break
+                    case '>':
+                        if (cbyte == 29999) {
+                            cbyte = 0
+                        } else {
+                            cbyte++
+                        }
+                        cn++
+                        break
+                    case '<':
+                        if (cbyte == 0) {
+                            cbyte = 29999
+                        } else {
+                            cbyte--
+                        }
+                        cn++
+                        break
+                    case '.':
+                        //console.log(`cbyte is ${cbyte}`)
+                        //console.log(bytes[0].toString(10))
+                        output += `${bytes[cbyte]}\n`
+                        cn++
+                        break
+                    case ',':
+                        bytes[cbyte] = inputs[cn]
+                        cn++
+                        break
+                    case '[':
+                        if (bytes[cbyte] == 0) {
+                            cn = jumps[cn]
+                        }
+                        cn++
+                        break
+                    case ']':
+                        if (bytes[cbyte] != 0) {
+                            cn = jumps[cn]
+                        }
+                        cn++
+                        break
+                    default:
+                        cn++
+                }
+            }
+
+            //console.log(output)
+            setOutput(output)
+
+            console.log('code finished running')
+        }
+
+        function setOutput(data) {
+            document.getElementById('bfoutput').textContent = data
+        }
+    </script>
+</head>
+
+<body>
+    <h4>
+        An interpreter for the greatest language, <a href="https://en.wikipedia.org/wiki/Brainfuck">Brain****</a>
+    </h4>
+
+    for understanding the syntax, refer to the
+    <a href="https://en.wikipedia.org/wiki/Brainfuck#Language_design">Wikipedia article</a><br>
+    And if you want to understand the ASCII table, again, refer to the
+    <a href="https://en.wikipedia.org/wiki/ASCII">Wikipedia article</a><br><br>
+
+    <label for="bfcodeinput" name="bfcode">Input Code Here</label><br>
+    <textarea id="bfcodeinput" autocomplete="off" autocapitalize="off" autofocus="off" rows="30" cols="50"
+        spellcheck="false" wrap="hard" placeholder=""></textarea>
+
+    <br>
+
+    <label for="bfinput">Add Inputs Here(all inputs should be separated by commas, and should be a number between 0 and
+        127 inclusive)</label><br>
+    <textarea id="bfinput" autocomplete="off" autocapitalize="off" autofocus="off" rows="2" cols="40" spellcheck="false"
+        wrap="hard" placeholder=""></textarea>
+
+    <br>
+
+    <button type="button" onclick="runCode()">Run Code</button><br><br><br>
+
+    <label for="bfoutput">Output:</label><br>
+    <p id="bfoutput"></p>
+    <br><br><br><br><br>
+    <h4 id="pageinfo">
+        Please note, this is a pretty bad Bf parser(mostly because I had to write it in JavaScript)
+        <br><br>
+        So if you want an actually well made(ish) BF parser that runs locally on your machine, you could use <a
+            href="https://github.com/voidwyrm-2/brainflip-interpreter">one
+            of</a> <a href="https://github.com/voidwyrm-2/brainfrick-interpreter">mine</a>, or any of the countless ones
+        on <a href="https://github.com">GitHub</a>
+        <br><br>
+        Or if you wanna contribute to this one(not sure why you would want to stoop to use JavaScript, but whatever),
+        the repo for this page(and others) is <a href="https://github.com/voidwyrm-2/voidwyrm-2.github.io">here</a>
+    </h4>
+
+</body>

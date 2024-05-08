@@ -1,0 +1,27 @@
+body {
+    position: absolute;
+    color: #313131;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#bfcodeinput {
+    resize: none;
+}
+
+#bfinput {
+    resize: none;
+}
+
+#bfoutput {
+    position: absolute;
+    margin: 0%;
+    size: 40px;
+    padding: 0.3rem;
+    background-color: #dddddd;
+}
+
+/*
+#pageinfo {
+    font-family: Arial, Helvetica, sans-serif;
+}
+*/

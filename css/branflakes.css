@@ -1,0 +1,27 @@
+body {
+    background-color: rgb(188, 188, 188);
+}
+
+#script_holder {
+    position: absolute;
+    text-align: center;
+    text-shadow: 10cm;
+}
+
+.scriptblock {
+    /*background-color: rgb(119, 119, 119);*/
+    /*
+    font-family: comic-shanns, monospace;
+    src: url('https://github.com/ryanoasis/nerd-fonts/blob/master/src/unpatched-fonts/ComicShannsMono/ComicShannsMono-Regular.otf');
+    */
+    font-size: 13px;
+}
+
+.scripttitle {
+    /*background-color: rgb(119, 119, 119);*/
+    /*
+    font-family: 'font3270';
+    src: url('https://github.com/ryanoasis/nerd-fonts/blob/master/src/unpatched-fonts/3270/Regular/3270-Regular.ttf');
+    */
+    font-size: 20px;
+}

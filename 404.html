@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script id="main">
+
+        const spamtonlines = [
+            'HEY      EVERY      !! IT\'S ME!!!',
+            'EV3RY  BUDDY  \'S FAVORITE [[Number 1 Rated Salesman1997]]',
+            'SPAMT',
+            'SPAMTON G. SPAMTON!!',
+            'WOAH!! IF IT ISN"T A...',
+            'LIGHT nER! HEY-HE Y HEY!!!',
+            'LOOKS LIKE YOU\'RE [[All Alone On A Late Night?]]',
+            'ALL YOUR FRIENDS, [[Abandoned you for the slime]] YOU ARE?',
+            'SALES, GONE DOWN THE [[Drain]] [[Drain]]??',
+            'LIVING IN A GODDAMN GARBAGE CAN???',
+            'WELL HAVE I GOT A [[Specil Deal]] FOR LONELY [[Hearts]] LIKE YOU!!',
+            'IF YOU\'VE [[Lost Control Of Your Life]]',
+            'THEN YOU JUST GOTTA GRAB IT BY THE [[Silly Strings]]',
+            'WHY BE THE [[Little Sponge]] WHO HATES ITS [[$4.99]] LIFE',
+            'WHEN YOU CAN BE A',
+            '[[BIG SHOT!!!]]',
+            '[[BIG SHOT!!!!]]',
+            '[[BIG SHOT!!!!!]]',
+            'THAT\'S RIGHT!! NOW\'S YOUR CHANCE TO BE A [[BIG SHOT]]!!',
+            'AND I HAVE JUST.',
+            'THE THING.',
+            'YOU NEED.',
+            'THAT\'S',
+            '[[Hyperlink Blocked]].',
+            'YOU WANT IT. YOU WANT [[Hyperlink Blocked]], DON\'T YOU.',
+            'WELL HAVE I GOT A DEAL FOR YOU!!',
+            'ALL YOU HAVE TO DO IS SHOW ME.',
+            'YOUR [[HeartShapedObject]].',
+            'YOU\'RE  LIGHT neR< AREN\'T YOU?',
+            'YOU\'VE GOT THE [[LIGHT.]] WHY DON\'T YOU [[Show it off?]]',
+            'HAEAHAEAHAEAHAEAH!!'
+        ]
+        function spamtongspamton() {
+            const pb1 = document.getElementById('b1');
+            const pb2 = document.getElementById('b2');
+            const pb3 = document.getElementById('b3');
+            const roll = Math.floor(Math.random() * 100)
+            console.log('sauve_or_spamton_roll: ' + roll.toString())
+            if (roll > 90) {
+                document.getElementById("spamton").remove();
+                pb1.textContent = 'Hola';
+                pb2.textContent = 'You seem to have caught me...';
+                pb3.textContent = 'Mid-Suavemente';
+            } else {
+                document.getElementById("sauvemente").remove();
+                document.getElementById("b2").remove();
+                document.getElementById("b3").remove();
+                document.getElementById("br1").remove();
+                pb1.textContent = spamtonlines[Math.floor(Math.random() * spamtonlines.length)];
+            }
+
+        }
+
+        if (document.readyState === "loading") {
+            // Loading hasn't finished yet
+            document.addEventListener("DOMContentLoaded", spamtongspamton);
+        } else {
+            // `DOMContentLoaded` has already fired
+            spamtongspamton();
+        }
+    </script>
+</head>
+
+<body>
+    <div data-video="VIDEO_ID" data-autoplay="0" data-loop="1" id="youtube-audio">
+    </div>
+    <h1>
+        404: Page Not Found
+    </h1>
+    <b id="b1">
+        if you're seeing this, it means the 404 message was unable to load for some reason
+    </b>
+    <br id="br1">
+    <b id="b2"></b>
+    <br id="br2">
+    <b id="b3"></b>
+    <p id="spamton">
+        <img src="https://static.wikia.nocookie.net/deltarune/images/d/d9/Spamton_battle_static.png"
+            style="width:80px;height:110px;">
+    </p>
+    <br>
+    <p id="sauvemente">
+        <!--start at "Hola": start=4, start at "Mid-sauvemente": start=7 , start after "Mid-sauvemente": start=-->
+        <iframe width="560" height="315"
+            src="https://www.youtube.com/embed/yNCgpaMlOcs?si=RGDjHz5ZUJTShfLD&autoplay=1&amp;start=9"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+    </p>
+    <!--<p>
+            WOAH!! IF IT ISN"T A...
+        </p>
+        <p>
+            LIGHT nER! HEY-HE Y HEY!!!
+        </p>
+        <p>
+            LOOKS LIKE YOU'RE [[All Alone On A Late Night?]]
+        </p>-->
+    <!--<textarea id="output" readonly="true"></textarea>-->
+    <!--<dialog open>
+            <p>Greetings, one and all!</p>
+            <form method="dialog">
+              <button>OK</button>
+            </form>
+          </dialog>-->
+</body>
+
+</html>
