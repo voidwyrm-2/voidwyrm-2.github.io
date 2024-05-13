@@ -1,0 +1,131 @@
+:root {
+    /* heights and widths */
+    --upper-height: 290px;
+    --utmf-height: 200px;
+    --utmf-width: 1454px;
+    --middle-height: 600px;
+
+    --basicsyntax-block-width: 700px;
+
+    /* positions */
+    --utmf-pos: var(--upper-height);
+    --middle-pos: calc(var(--upper-height) + var(--utmf-height));
+
+    --codeblocks-base-pos: calc(var(--upper-height) + 40);
+
+    /* colors */
+    --upper-color: black;
+    --upper-text-color: white;
+    --middle-color: rgb(77, 154, 176);
+}
+
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    background-color: rgba(0, 0, 0, 255);
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
+    font-size: 18px;
+}
+
+
+#title {
+    /*color: rgb(233, 132, 107);*/
+    position: absolute;
+    left: 34%;
+}
+
+#titlelogo {
+    position: absolute;
+    width: 110px;
+    left: 2%;
+    top: 18px;
+}
+
+#mend-bio {
+    position: absolute;
+    top: 85px;
+    left: 10%;
+    /*90px*/
+    text-align: left;
+}
+
+.bio-link {
+    color: var(--upper-text-color);
+}
+
+#upper {
+    color: var(--upper-text-color);
+    height: var(--upper-height);
+    background-color: var(--upper-color);
+    margin-bottom: 40px;
+}
+
+#upper-to-middle-fade {
+    position: absolute;
+    background-color: var(--upper-color);
+    background-image: linear-gradient(var(--upper-color), var(--middle-color));
+    height: var(--utmf-height);
+    top: var(--utmf-pos);
+    width: var(--utmf-width);
+}
+
+#middle {
+    background-color: var(--middle-color);
+    height: var(--middle-height);
+    top: var(--middle-pos);
+}
+
+#title-basicsyntax {
+    position: absolute;
+    top: var(--codeblocks-base-pos);
+    left: 45.4%;
+}
+
+#content-basicsyntax {
+    position: absolute;
+    background-color: black;
+    color: gray;
+    width: var(--basicsyntax-block-width);
+    height: fit-content;
+    /*500px;*/
+    top: calc(var(--middle-pos) - 80px);
+    left: calc(50% - calc(var(--basicsyntax-block-width) / 2));
+    font-size: 14px;
+    font-family: monospace, 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
+}
+
+/*
+.codeblock {
+    position: absolute;
+    top: var(--codeblocks-base-pos);
+    margin: 20px;
+}
+
+
+.codeblock pre {
+    overflow-y: auto;
+    margin: var(--gap-3) 0 var(--gap-4) 0;
+    padding: var(--gap-2) var(--gap-2);
+    background-color: var(--color-black);
+}
+
+.codeblock pre,
+.codeblock .shadow {
+    box-shadow: var(--gap-1) var(--gap-1) 0 0 var(--color-blacker);
+}
+
+
+.codeblock-content {
+    background-color: rgb(116, 116, 116);
+}
+
+
+#middle-padding {
+    background-color: var(--upper-color);
+    position: relative;
+    margin-bottom: 5%;
+}
+*/

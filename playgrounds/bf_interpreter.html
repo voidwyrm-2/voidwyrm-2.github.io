@@ -5,21 +5,46 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="icon" type="image/png" href="/assets/logos/NuclearPasta_nofork-nobackground.png">
+    <link rel="icon" type="image/png" href="/assets/debugos/NuclearPasta_nofork-nobackground.png">
 
-    <meta property="og:image" content="/assets/logos/NuclearPasta_nofork-nobackground.png">
-    <meta property="og:image:secure_url" content="/assets/logos/NuclearPasta_nofork-nobackground.png">
+    <meta property="og:image" content="/assets/debugos/NuclearPasta_nofork-nobackground.png">
+    <meta property="og:image:secure_url" content="/assets/debugos/NuclearPasta_nofork-nobackground.png">
     <meta property="og:title" content="BF Interpreter">
     <meta property="og:description" content="A web Brain**** interpreter">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Nuclear Pasta > Playgrounds">
 
-    <link rel="stylesheet" href="/css/playground/bfinterpreter.css">
+    <link rel="stylesheet" href="/css/playgrounds/bfinterpreter.css">
 
     <title>
         BF Interpreter
     </title>
     <script>
+        function setCookie(name, value, days) {
+            var expires = "";
+            if (days) {
+                var date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                expires = "; expires=" + date.toUTCString();
+            }
+            document.cookie = name + "=" + (value || "") + expires + "; path=/; domain=" + location.hostname;
+        }
+
+        function getCookie(name) {
+            var nameEQ = name + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+            }
+            return null;
+        }
+
+        function eraseCookie(name) {
+            document.cookie = name + '=; Max-Age=-1;';
+        }
+
 
         // +++++.>+++++++.<[->+<]>.
 
@@ -27,21 +52,23 @@
         const bytearraysize = 30000
 
         function runCode() {
-            console.log('begin code interpreting')
+
+            console.debug('begining code interpretation')
 
             setOutput('')
 
-            console.log('output console cleared')
+            console.debug('output console cleared')
 
             let bytes = []
             for (let i = 0; i < bytearraysize + 1; i++) { bytes[i] = 0 }
 
-            console.log(`bytearray generated with size of ${bytearraysize}`)
+            console.debug(`bytearray generated with size of ${bytearraysize}`)
 
-            //console.log(`literal: ${bytes}`)
+            //console.debug(`literal: ${bytes}`)
 
             let cbyte = 0
 
+            /*
             const inputs_raw = document.getElementById('bfinput').value
 
             let inputs_list = []
@@ -68,10 +95,12 @@
                         return
                     }
                 }
-                console.log('inputs loaded')
+                console.debug('inputs loaded')
             } else {
-                console.log('inputs empty, ignoring')
+                console.debug('inputs empty, ignoring')
             }
+            */
+
 
             const codeElement = document.getElementById('bfcodeinput')
 
@@ -94,7 +123,7 @@
                 return
             } else if (code == '42') {
                 setOutput('nice')
-                console.log('the user is cultured')
+                console.debug('the user is cultured')
                 return
             } else if (code.toLowerCase().includes('fornite') && code.toLowerCase().includes('sex') && code.toLowerCase().includes('gamer') && code.toLowerCase().includes('69')) {
                 setOutput('ERROR: that\'s a terrible reference')
@@ -103,19 +132,22 @@
             } else if (code.toLowerCase() == 'pootis engage' ||
                 code.toLowerCase() == 'mimi turret' ||
                 code.toLowerCase() == 'ken ashcorp' ||
-                code == 'ThePrimeagen' ||
-                code == 'ThePrimeTime' ||
+                code.toLowerCase() == 'theprimeagen' ||
+                code.toLowerCase() == 'theprimetime' ||
                 code.toLowerCase() == 'dreamberd') {
                 setOutput('a person of culture, I see')
-                console.log('the user is VERY cultured')
+                console.debug('the user is VERY cultured')
                 return
             }
 
-            //console.log(code)
+            //console.debug(code)
 
-            console.log('code loaded')
+            console.debug('code loaded')
 
-            if (code.includes(',') && inputs.length < 1) setOutput('ERROR: \',\' found but no inputs given'); console.warn('\',\' found but no inputs given'); return
+            console.debug('saving code to cookie backup...')
+            setCookie("bfCodeBackupCookie", code, 100000)
+
+            //if (code.includes(',') && inputs.length < 1) setOutput('ERROR: \',\' found but no inputs given'); console.warn('\',\' found but no inputs given'); return
 
             let jumps = {}
 
@@ -145,7 +177,8 @@
                     setOutput(`ERROR: unbalanced ']' at character ${cn + 1}`)
                     console.warn(`unbalanced ']' at character ${cn + 1}`)
                     return
-                } else if (c == ',') {
+                }/*
+                else if (c == ',') {
                     if (inputcount > inputs_list.length - 1) {
                         setOutput(`ERROR: not enough inputs given`)
                         console.warn(`not enough inputs given`)
@@ -153,11 +186,12 @@
                     inputs[cn] = inputs_list[inputcount]
                     inputcount++
                 }
+                */
             }
 
             if (jumpcount % 2 != 0) { setOutput('ERROR: unbalanced \'[\''); console.warn('unbalanced \'[\''); return }
 
-            console.log('jumps loaded')
+            console.debug('jumps loaded')
 
             let output = ''
             let cn = 0
@@ -201,7 +235,22 @@
                         cn++
                         break
                     case ',':
-                        bytes[cbyte] = inputs[cn]
+                        //bytes[cbyte] = inputs[cn]
+                        var message = "Please enter a number in the range 0-127, inclusive"
+                        while (true) {
+                            inp = prompt();
+                            if (inp == "") return
+                            try {
+                                inp_int = Number(inp)
+                                if (inp_int < 0 || inp_int > 127) throw new Error("Input given was outside of inclusive range 0-127(it is instead '" + String(inp_int) + "')")
+                            }
+                            catch (e) {
+                                console.warn("while trying to convert user input, got: ", e)
+                                message = "That's not a valid number!\n" + message
+                                continue
+                            }
+                            break
+                        }
                         cn++
                         break
                     case '[':
@@ -223,11 +272,27 @@
 
             setOutput(output)
 
-            console.log('code finished running')
+            console.debug('code finished running')
         }
 
         function setOutput(data) {
             document.getElementById('bfoutput').textContent = data
+        }
+
+        function init() {
+            bfCodeBackupCookie_content = getCookie('bfCodeBackupCookie')
+            if (bfCodeBackupCookie_content != null) {
+                document.getElementById('bfcodeinput').value = bfCodeBackupCookie_content
+            }
+        }
+
+
+        if (document.readyState === "loading") {
+            // Loading hasn't finished yet
+            document.addEventListener("DOMContentLoaded", init);
+        } else {
+            // `DOMContentLoaded` has already fired
+            init();
         }
     </script>
 </head>
@@ -248,12 +313,13 @@
 
     <br>
 
+    <!--
     <label for="bfinput">Add Inputs Here(all inputs should be separated by commas, and should be a number between 0 and
         127 inclusive)</label><br>
     <textarea id="bfinput" autocomplete="off" autocapitalize="off" autofocus="off" rows="2" cols="40" spellcheck="false"
         wrap="hard" placeholder=""></textarea>
-
     <br>
+    -->
 
     <button type="button" onclick="runCode()">Run Code</button><br><br><br>
 

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/png" href="/assets/logos/NuclearPasta_nofork-nobackground.png">
+
+    <meta property="og:image" content="/assets/logos/MendLogo_trans.png">
+    <meta property="og:image:secure_url" content="/assets/logos/MendLogo_trans.png">
+    <meta property="og:title" content="Mend, the worst language on Earth">
+    <meta property="og:description" content="The Mend programming language">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Nuclear Pasta > docs > languages">
+
+    <link rel="stylesheet" href="/css/docs/languages/mend.css">
+
+    <title>
+        Mend, the worst language on Earth
+    </title>
+</head>
+
+<body>
+    <div id="upper">
+        <!--, the language that's just text-based Scratch-->
+        <img src="/assets/logos/MendLogo_trans.png" id="titlelogo" />
+        <h2 id="title">
+            Mend, the worst language on Earth
+        </h2>
+        <!--
+    <div id="mend-bio-intro">
+        You, good Sir, Ma'am, or other gender, allow me to ask you a
+        question:
+    </div>
+    -->
+        <div id="mend-bio">
+            You, good Sir, Ma'am, or other gender, allow me to ask you a
+            question:<br><br>
+            Do you want a statically-typed, memory-safe, quick-to-compile, multiplatform, well-syntaxed language with
+            all
+            the features you
+            need to get
+            work done?<br>
+            Well <b>WOW</b> you really messed up because Mend is none of those things.<br>
+            If you want a statically-typed and memory-safe language, use <a class="bio-link"
+                href="https://www.rust-lang.org">Rust</a>.<br>
+            If you also care about compile times, good platform portability, and/or simplicity, use <a class="bio-link"
+                href="go.dev">Go</a>.<br>
+            If you want a well-syntaxed language, use literally anything other than JavaScript.<br><br>
+
+            Mend is a dynamically-typed and definitely not memory-safe interpreted language written in Python, that was
+            somewhat meant to be a text-based Scratch.<br>
+            And as for syntax... ok it's not too bad, actually.
+        </div>
+    </div>
+
+    <!--<div id="upper-to-middle-fade"></div>-->
+
+    <div id="middle">
+        <h3 id="title-basicsyntax">Basic Syntax</h3>
+        <div id="content-basicsyntax">
+            <pre>
+-- '--', '//', ';', or '#' can be used for comments
+// this works
+; this works, as well
+# ditto
+
+-- you print stuff with the 'log' keyword
+log "Hello, Catdog!"
+
+-- variable declaration
+-- make mutable variables with the 'mut' keyword
+mut x as "a scratched record"
+
+-- make immutable variables with the 'immut' keyword
+immut y as "can't touch this"
+
+-- use the 'set' keyword for reassignment
+set x as "a mended record"
+
+-- this would error
+-- set y as "hammer time"
+
+-- functions
+
+-- use the 'func' keyword to declare a function
+func AddHerobrine()
+    log "Added Herobrine"
+end
+
+-- call function
+AddHerobrine()
+</pre>
+        </div>
+    </div>
+    <!--<div id="middle-padding"></div>-->
+</body>
