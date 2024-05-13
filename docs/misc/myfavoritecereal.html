@@ -5,9 +5,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="icon" type="image/png" href="/assets/logos/NuclearPasta_nofork-nobackground.png">
+    <link rel="icon" type="image/png" href="/assets/logos/NuclearPasta-nofork-nobackground.png">
 
-    <link rel="stylesheet" href="/css/playground/misc/branflakes.css">
+    <link rel="stylesheet" href="/css/docs/misc/branflakes.css">
 
     <title>
         The Best Language(and cereal!)
@@ -16,31 +16,28 @@
 
 <body>
     <h3>
-        <a href="https://en.wikipedia.org/wiki/Brainfuck">Brain****</a>(or as I prefer to call it, Branflakes) is an
-        <a href="https://en.wikipedia.org/wiki/Esoteric_programming_language">esoteric programming language</a> created
+        <a class="title-link" href="https://en.wikipedia.org/wiki/Brainfuck">Brain****</a>(or as I prefer to call it,
+        Branflakes) is an
+        <a class="title-link" href="https://en.wikipedia.org/wiki/Esoteric_programming_language">esoteric programming
+            language</a> created
         in 1993 by
-        Urban Müller.
+        <abbr title="I keep wanting to read his name as 'Herman Miller' because of Sonic 06'">Urban Müller</abbr>.
     </h3>
-    <h4>
-        And I love it
-    </h4>
-    <p class="desciption holder" id="desc_holder">
-        <b>
-            So here's a bunch of Branflakes scripts
-        </b>
+    <div class="desciption holder" id="desc-holder">
+        So here's a bunch of Branflakes scripts
         <br>
         To run them, put them into any Branflakes compiler or interpreter<br>
         Or alternatively, if you despise using anything that you didn't make yourself, you could write one in
         <b><i>literally any language</i></b>(even Branflakes itself...)
-
-    </p>
+    </div>
     <br>
-    <p class="scripts holder" id="script_holder">
+    <div id="scripts">
 
-    <p class="scripts" id="script_adding">
-    <p class="scripttitle">Adding</p>
-    <pre>
-    <code class="scriptblock">
+        <div class="script-block" id="script-adding">
+            <div class="script-title">Adding</div>
+
+            <div class="script-code">
+                <pre>
 +++++ set first byte to 5
 
 > move to second byte
@@ -55,18 +52,20 @@ adding loop
     > move to second byte
     + add 1 to second byte
     < move back to first byte
-] this jumps back to the corresponding '[' when the current byte is NOT 0
-  so it will continue until the first byte is 0
+] this jumps back to the corresponding '[' when the current byte is NOT 0,
+so it will continue until the first byte is 0
 
 >. move to second byte and print it to console
-    </code>
-    </pre>
-    </p>
+</pre>
+            </div>
 
-    <p class="scripts" id="script_basic-adder">
-    <p class="scripttitle">Basic Adder</p>
-    <pre>
-    <code class="scriptblock">
+        </div>
+
+        <div class="script-block" id="script-basic-adder">
+            <div class="script-title">Basic Adder</div>
+
+            <div class="script-code">
+                <pre>
 [
     adder test/example
 ]
@@ -83,7 +82,6 @@ adding loop
 < move back to first byte
 
 
-add first byte to second byte giving 73 which is an uppercase "i" in ASCII
 [ is the current byte zero? jump to corresponding bracket if so
     - remove 1 from current byte
     > move to next byte
@@ -94,10 +92,11 @@ add first byte to second byte giving 73 which is an uppercase "i" in ASCII
 > move to second byte
 
 . print second byte
-    </code>
-    </pre>
-    </p>
+</pre>
+            </div>
 
-    </p>
+        </div>
+
+    </div>
 
 </body>

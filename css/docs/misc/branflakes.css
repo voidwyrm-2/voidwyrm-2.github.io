@@ -2,26 +2,28 @@ body {
     background-color: rgb(188, 188, 188);
 }
 
-#script_holder {
-    position: absolute;
+.title-link {
+    text-decoration: none;
+}
+
+.script-block {
+    position: relative;
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
+    left: 30%;
+}
+
+.script-title {
     text-align: center;
-    text-shadow: 10cm;
-}
-
-.scriptblock {
-    /*background-color: rgb(119, 119, 119);*/
-    /*
-    font-family: comic-shanns, monospace;
-    src: url('https://github.com/ryanoasis/nerd-fonts/blob/master/src/unpatched-fonts/ComicShannsMono/ComicShannsMono-Regular.otf');
-    */
-    font-size: 13px;
-}
-
-.scripttitle {
-    /*background-color: rgb(119, 119, 119);*/
-    /*
-    font-family: 'font3270';
-    src: url('https://github.com/ryanoasis/nerd-fonts/blob/master/src/unpatched-fonts/3270/Regular/3270-Regular.ttf');
-    */
+    position: relative;
     font-size: 20px;
+}
+
+.script-code {
+    position: relative;
+    font-size: 13px;
+    width: 640px;
+    background-color: rgb(88, 88, 88);
+    border: 1px;
+    border-style: solid;
+    border-color: rgb(88, 88, 88);
 }

@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blockfuck</title>
+    <script src="https://unpkg.com/blockly/blockly.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="blocklyDiv"></div>
+    <div id="outputPane">
+        <button id="runButton" onclick="runCode()">Run</button>
+        <button id="exportButton" onclick="exportCode()">Save</button>
+        <button id="importButton" onclick="importCode()">Load</button>
+        <button id="exportBfButton" onclick="exportBfCode()">Export as .bf</button>
+        <div id="output"></div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>

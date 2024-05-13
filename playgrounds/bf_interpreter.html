@@ -7,6 +7,13 @@
 
     <link rel="icon" type="image/png" href="/assets/logos/NuclearPasta_nofork-nobackground.png">
 
+    <meta property="og:image" content="/assets/logos/NuclearPasta_nofork-nobackground.png">
+    <meta property="og:image:secure_url" content="/assets/logos/NuclearPasta_nofork-nobackground.png">
+    <meta property="og:title" content="BF Interpreter">
+    <meta property="og:description" content="A web Brain**** interpreter">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Nuclear Pasta > Playgrounds">
+
     <link rel="stylesheet" href="/css/playground/bfinterpreter.css">
 
     <title>
@@ -148,12 +155,6 @@
                 }
             }
 
-            //console.log(jumps)
-
-            //console.log(jumpcount)
-            //console.log(jumpcount % 2)
-            //console.log(jumpcount % 2 == 0)
-
             if (jumpcount % 2 != 0) { setOutput('ERROR: unbalanced \'[\''); console.warn('unbalanced \'[\''); return }
 
             console.log('jumps loaded')
@@ -162,8 +163,6 @@
             let cn = 0
             while (cn < code.length) {
                 const c = code.charAt(cn)
-                //console.log(cn)
-                //if (c != '\n') console.log(c)
                 switch (c) {
                     case '+':
                         if (bytes[cbyte] == 127) {
@@ -198,8 +197,6 @@
                         cn++
                         break
                     case '.':
-                        //console.log(`cbyte is ${cbyte}`)
-                        //console.log(bytes[0].toString(10))
                         output += `${bytes[cbyte]}\n`
                         cn++
                         break
@@ -224,7 +221,6 @@
                 }
             }
 
-            //console.log(output)
             setOutput(output)
 
             console.log('code finished running')
@@ -272,7 +268,7 @@
             of</a> <a href="https://github.com/voidwyrm-2/brainfrick-interpreter">mine</a>, or any of the countless ones
         on <a href="https://github.com">GitHub</a>
         <br><br>
-        Or if you wanna contribute to this one(not sure why you would want to stoop to use JavaScript, but whatever),
+        Or if you wanna contribute to this one(not sure why you would want to stoop to using JavaScript, but whatever),
         the repo for this page(and others) is <a href="https://github.com/voidwyrm-2/voidwyrm-2.github.io">here</a>
     </h4>
 
