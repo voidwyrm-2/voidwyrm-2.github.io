@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" href="/assets/NuclearPasta_nofork-nobackground.png">
+
+    <meta property="og:image" content="/assets/NuclearPasta_nofork-nobackground.png">
+    <meta property="og:image:secure_url" content="/assets/NuclearPasta_nofork-nobackground.png">
+    <meta property="og:title" content="Nuclear Pasta: 404">
+    <meta property="og:description" content="Page Not Found">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Nuclear Pasta: 404">
+
+    <link rel="stylesheet" href="/css/404.css">
+
+    <title>
+        Nuclear Pasta: 404
+    </title>
+</head>
+
+<body>
+    <div class="backtohome">
+        <a href="/index.html">
+            <img class="bth-img" width="50" height="50" src="/assets/Home.png" />
+        </a>
+    </div>
+
+    <div id="main">
+        <div id="main-one">That's odd, there's nothing here</div>
+        <div id="main-two">Maybe you typed in the wrong URL?</div>
+        <div id="main-three">Well, while your here, <a class="link" id="randomlink" href="/index.html"></a></div>
+    </div>
+
+    <script>
+        const possiblePages = [
+            "/projects/velvetvm.html"
+        ];
+        const selectedPage = possiblePages[Math.floor(Math.random() * possiblePages.length)];
+
+        const a = document.getElementById("randomlink");
+        a.href = selectedPage;
+
+        const type = selectedPage.split("/")[1];
+        a.textContent = "go check out a " + type.slice(0, type.length - 1);
+    </script>
+</body>
+
+</html>

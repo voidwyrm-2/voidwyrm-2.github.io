@@ -1,0 +1,86 @@
+@import url(/css/base.css);
+
+/* upper area */
+
+.titlename {
+    position: relative;
+    left: 30%;
+    width: 600px;
+    /* ^ 750px */
+}
+
+#bio {
+    position: absolute;
+    left: 33%;
+    width: 500px;
+    height: 300px;
+    padding-top: 40px;
+    padding-bottom: 50px;
+    text-align: center;
+    top: 8px;
+}
+
+.bio .nuclear {
+    color: rgb(153, 229, 80);
+}
+
+.bio .pasta {
+    color: rgb(249, 179, 90);
+}
+
+#bio-license {
+    position: relative;
+    padding-top: 30px;
+    font-size: 14px;
+    color: rgb(98, 19, 68);
+}
+
+/* middle area */
+
+.links-title {
+    position: absolute;
+    top: 230px;
+    left: 41.6%;
+    color: rgb(82, 33, 111);
+}
+
+.links-container {
+    position: absolute;
+    top: 300px;
+    left: 42.5%;
+}
+
+.links-item {
+    position: relative;
+    margin: 20px;
+    padding-bottom: 70px;
+    background-color: rgb(0, 27, 66);
+    width: 200px;
+    height: 70px;
+    margin: 15px;
+    display: block;
+    justify-content: center;
+
+    border: 4px;
+    border-radius: 2px;
+    border-color: rgb(15, 73, 94);
+    border-width: 2px;
+    border-style: solid;
+}
+
+.links-item .title {
+    margin-top: 8px;
+    text-align: center;
+    color: rgb(48, 141, 71);
+}
+
+.links-item .title .link {
+    color: rgb(94, 194, 119);
+    text-decoration: none;
+}
+
+.links-item .desc {
+    margin-top: 10px;
+    text-align: center;
+    color: rgb(38, 114, 79);
+}

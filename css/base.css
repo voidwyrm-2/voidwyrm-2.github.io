@@ -1,0 +1,33 @@
+@font-face {
+  font-family: "BigBlueTerm";
+  src: url(/assets/fonts/BigBlueTerm437NerdFontMono-Regular.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "0xProto";
+  src: url(/assets/fonts/0xProtoNerdFontMono-Regular.ttf) format("truetype");
+}
+
+body {
+  background-color: rgb(4, 4, 37);
+  color: rgb(99, 51, 103);
+  font-family: '0xProte', 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
+}
+
+/* taken from https://dafluffypotato.com */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.pasta-substance {
+  color: rgb(208, 66, 92);
+}
+
+a {
+  color: rgb(147, 73, 157);
+  text-decoration: none;
+}
+
+a:visited {
+  color: rgb(131, 52, 121);
+}

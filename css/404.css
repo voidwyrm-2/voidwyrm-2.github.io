@@ -1,0 +1,18 @@
+@import url(/css/branchbase.css);
+
+#main {
+  position: absolute;
+  top: 40%;
+  left: 34%;
+  right: 34%;
+  height: 100px;
+  width: 370px;
+  font-size: 20px;
+  align-content: center;
+  vertical-align: middle;
+  text-align: center;
+}
+
+#main .link {
+  text-decoration: none;
+}
