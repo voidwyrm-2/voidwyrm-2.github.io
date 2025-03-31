@@ -6,48 +6,45 @@
     position: relative;
     left: 30%;
     width: 600px;
-    /* ^ 750px */
 }
 
 #bio {
-    position: absolute;
-    left: 33%;
-    width: 500px;
-    height: 300px;
+    position: relative;
     padding-top: 40px;
     padding-bottom: 50px;
     text-align: center;
     top: 8px;
+    justify-content: center;
+    flex-direction: row;
 }
 
-.bio .nuclear {
+#bio .nuclear {
     color: rgb(153, 229, 80);
 }
 
-.bio .pasta {
+#bio .pasta {
     color: rgb(249, 179, 90);
 }
 
 #bio-license {
-    position: relative;
-    padding-top: 30px;
-    font-size: 14px;
     color: rgb(98, 19, 68);
 }
 
 /* middle area */
 
-.links-title {
-    position: absolute;
-    top: 230px;
-    left: 41.6%;
+#links {
+    position: relative;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#links-title {
+    position: relative;
     color: rgb(82, 33, 111);
 }
 
-.links-container {
-    position: absolute;
-    top: 300px;
-    left: 42.5%;
+#links-container {
+    position: relative;
 }
 
 .links-item {
