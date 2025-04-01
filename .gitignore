@@ -10,3 +10,4 @@ bin/
 obj/
 .zig-cache
 .zig-out
+node_modules/
