@@ -1,4 +1,6 @@
-baseurl = "//voidwyrm-2.github.io/"
+baseurl = "https://voidwyrm-2.github.io/"
+title = "Nuclear Pasta's Plate"
+
 languageCode = "en-us"
 # Add it only if you keep the theme in the `themes` directory.
 # Remove it if you use the theme as a remote Hugo Module.
@@ -105,6 +107,6 @@ name = "Showcase"
 url = "/showcase"
 
 [[languages.en.menu.main]]
-identifier = "posts"
-name = "Posts"
+identifier = "blog"
+name = "Blog"
 url = "/posts"

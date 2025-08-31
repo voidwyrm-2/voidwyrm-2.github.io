@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Nuclear</title>
-    <link>//voidwyrm-2.github.io/</link>
+    <link>https://voidwyrm-2.github.io/</link>
     <description>Recent content on Nuclear</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <atom:link href="//voidwyrm-2.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://voidwyrm-2.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title></title>
-      <link>//voidwyrm-2.github.io/showcase/</link>
+      <link>https://voidwyrm-2.github.io/showcase/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//voidwyrm-2.github.io/showcase/</guid>
+      <guid>https://voidwyrm-2.github.io/showcase/</guid>
       <description>&lt;h1 id=&#34;showcase&#34;&gt;Showcase&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/The-Memory-Managers/cpu-vs-ai&#34;&gt;CPU vs AI&lt;/a&gt;, a tower-defense written with two others for Boot.dev&amp;rsquo;s 2025 hackathon.&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/voidwyrm-2/parbyte&#34;&gt;parbyte&lt;/a&gt;, a library for parsing binary formats into structs.&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/voidwyrm-2/xbf&#34;&gt;XBF&lt;/a&gt;, a &lt;a href=&#34;https://en.wikipedia.org/wiki/Brainfuck&#34;&gt;Brainf&lt;/a&gt; compiler with multiple backends written in Rust (btw).&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/voidwyrm-2/rs-100&#34;&gt;RS-100&lt;/a&gt;, the assembly dialect from &lt;a href=&#34;https://www.zachtronics.com/tis-100/&#34;&gt;TIS-100&lt;/a&gt; in a natively runnable form.&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/voidwyrm-2/luext&#34;&gt;Luext&lt;/a&gt;, a Vim-like text editor made with Lua and the Love2D game engine.&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/voidwyrm-2/reqproc&#34;&gt;ReqProc&lt;/a&gt;, a concatenative stack-oriented language.&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/voidwyrm-2/raisin&#34;&gt;Raisin&lt;/a&gt;, a VM-based superset of Brainf.&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/voidwyrm-2/velvet-vm&#34;&gt;Velvet&lt;/a&gt;, a JVM- and CLR- like stack-based virtual machine.&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/voidwyrm-2/ana&#34;&gt;ANA&lt;/a&gt;, a functional scripting language written in Rust.&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/voidwyrm-2/templ&#34;&gt;Templ&lt;/a&gt;, a template generation tool.&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/voidwyrm-2/jil&#34;&gt;JIL&lt;/a&gt;, an interpreted language with manual memory management.&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
     </item>
   </channel>
