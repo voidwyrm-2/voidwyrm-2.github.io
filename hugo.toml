@@ -63,6 +63,10 @@ showLastUpdated = false
 # Example format, with date, time, and timezone abbreviation:
 # dateFormat = "2006-01-02 3:04:06 PM MST"
 
+[caches]
+[caches.images]
+dir = ':cacheDir/images'
+
 [params.twitter]
 # set Twitter handles for Twitter cards
 # see https://developer.twitter.com/en/docs/tweets/optimize-with-cards/guides/getting-started#card-and-content-attribution
