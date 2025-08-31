@@ -1,4 +1,4 @@
-baseurl = "https://voidwyrm-2.github.io/"
+baseurl = "//voidwyrm-2.github.io/"
 languageCode = "en-us"
 # Add it only if you keep the theme in the `themes` directory.
 # Remove it if you use the theme as a remote Hugo Module.
@@ -105,6 +105,6 @@ name = "Showcase"
 url = "/showcase"
 
 [[languages.en.menu.main]]
-identifier = "blogs"
-name = "Blogs"
+identifier = "posts"
+name = "Posts"
 url = "/posts"

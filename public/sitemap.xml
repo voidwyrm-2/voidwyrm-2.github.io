@@ -2,12 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://voidwyrm-2.github.io/</loc>
+    <loc>//voidwyrm-2.github.io/</loc>
   </url><url>
-    <loc>https://voidwyrm-2.github.io/showcase/</loc>
+    <loc>//voidwyrm-2.github.io/showcase/</loc>
   </url><url>
-    <loc>https://voidwyrm-2.github.io/categories/</loc>
+    <loc>//voidwyrm-2.github.io/categories/</loc>
   </url><url>
-    <loc>https://voidwyrm-2.github.io/tags/</loc>
+    <loc>//voidwyrm-2.github.io/tags/</loc>
   </url>
 </urlset>
