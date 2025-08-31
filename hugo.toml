@@ -79,10 +79,10 @@ site = ""
 [languages]
 [languages.en]
 languageName = "English"
-title = "Nuclear"
+title = "Nuclear Pasta's Plate"
 
 [languages.en.params]
-subtitle = "A simple, retro theme for Hugo"
+subtitle = "Nuclear Pasta's website"
 owner = ""
 keywords = ""
 copyright = ""
@@ -97,7 +97,7 @@ minuteReadingTime = "min read"
 words = "words"
 
 [languages.en.params.logo]
-logoText = "Nuclear Pasta's Plate"
+logoText = "Home"
 logoHomeLink = "/"
 
 [languages.en.menu]
