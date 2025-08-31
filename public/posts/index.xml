@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Nuclear Pasta&#39;s Plate</title>
+    <link>http://localhost:1313/posts/</link>
+    <description>Recent content in Posts on Nuclear Pasta&#39;s Plate</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 31 Aug 2025 17:31:17 -0400</lastBuildDate>
+    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Boot.dev 2025 Hackathon</title>
+      <link>http://localhost:1313/posts/bd-hackathon-2025/</link>
+      <pubDate>Sun, 31 Aug 2025 17:31:17 -0400</pubDate>
+      <guid>http://localhost:1313/posts/bd-hackathon-2025/</guid>
+      <description>&lt;p&gt;Have you ever participated in a hackathon?&#xA;I hadn&amp;rsquo;t until a month ago.&lt;/p&gt;&#xA;&lt;p&gt;Boot.dev&amp;rsquo;s first hackathon was announced July 22nd, and had three days to plan until the start of the hackathon on the 25th.&#xA;I was thinking about what to make for it for 2 of those days.&lt;/p&gt;&#xA;&lt;p&gt;Suddenly, my friend, Kyren, asked me if I wanted to join him and another member of Boot.dev, GottZ, on a team.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
